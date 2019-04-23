@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../user';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -10,11 +11,13 @@ import { User } from '../user';
 })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
+  private enVar;
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
+      this.enVar = environment;
   }
 
   public get currentUserValue(): User {
@@ -22,7 +25,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-      return this.http.post<any>(`http://localhost:4200/api/users/authenticate`, { username, password })
+      return this.http.post<any>(this.enVar.apiProtocol+this.enVar.apiHost+`/api/users/authenticate`, { username, password })
           .pipe(map(user => {
               // login successful if there's a jwt token in the response
               if (user && user.token) {

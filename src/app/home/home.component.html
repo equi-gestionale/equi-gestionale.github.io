@@ -1,8 +1,59 @@
-<h1>Home</h1>
-<p>You're logged in</p>
-<div>
-    Users from secure api end point:
-    <ul>
-        <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
-    </ul>
+<div class="container">
+    <h1>Equilibristi App</h1>
+    <div class="row">
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-primary">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Libreria</h3>
+                    <p class="card-text">Accedi al catalogo completo di libri di Equilibristi</p>
+                    <a href="#" class="btn btn-outline-light mt-auto">APRI</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-secondary">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Ricerca</h3>
+                    <p class="card-text">Ricerca un volume all'interno del catalogo completo di libri di Equilibristi</p>
+                    <a routerLink="#" class="btn btn-outline-light mt-auto">CERCA</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-success">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Inserisci</h3>
+                    <p class="card-text">Aggiungi un libro alla libreria </p>
+                    <a href="/inserisci" class="btn btn-outline-light mt-auto">SCANSIONA</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-danger">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Scarica</h3>
+                    <p class="card-text">Scarica un libro prelevato dalla libreria </p>
+                    <a href="#" class="btn btn-outline-light mt-auto">SCANSIONA</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-info">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Inserisci associato</h3>
+                    <p class="card-text">Inserisci l'anagrafica di un nuovo associato</p>
+                    <a href="#" class="btn btn-outline-light mt-auto">AGGIUNGI</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100 text-white bg-warning">
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title">Gestisci associato</h3>
+                    <p class="card-text">Gestrisci le informazioni di un associato</p>
+                    <a href="#" class="btn btn-outline-light mt-auto">MODIFICA</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
