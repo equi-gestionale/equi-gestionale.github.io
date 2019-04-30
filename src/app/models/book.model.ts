@@ -1,16 +1,20 @@
 
 export class Book {
+    id: number;
     isbn: string;
     title: string;
-    authors: [];
+    subtitle: string;
+    authors: string;
     publisher: string;
     publishedDate: Date;
     description: string;
     pageCount: number;
     language: string;
+    libraryMetadata: LibraryMetadata;
+  }
 
-    deserialize(input: any): this {
-      return Object.assign(this, input);
-    }
-
+  export class LibraryMetadata{
+    registrationDates:Date[];
+    deliveryDate:Date[];
+    numberOfCopy:number;
   }

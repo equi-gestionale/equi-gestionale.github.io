@@ -3,6 +3,9 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable } from 'rxjs';
 import { AuthenticationService } from './services/authentication.service';
 
+const externalHosts = {
+    GOOGLE: "googleapis.com"
+  };
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -11,7 +14,7 @@ export class JwtInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
         let currentUser = this.authenticationService.currentUserValue;
-        if (currentUser && currentUser.token) {
+        if (currentUser && currentUser.token && request.url.indexOf(externalHosts.GOOGLE)==-1) {
             request = request.clone({
                 setHeaders: {
                     Authorization: `Bearer ${currentUser.token}`

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import {map, catchError} from 'rxjs/operators';
+import { _keyValueDiffersFactory } from '@angular/core/src/application_module';
 import {Observable, throwError} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 import { Book } from '../models/book.model';
 import { GoogleResponse } from '../models/googleResponse.model';
 
@@ -18,9 +19,31 @@ export class GoogleBookService {
     this.enVar = environment;
    }
 
-   private extractData(res: Response) {
+  searchIsbn(isbn: string): Observable<Book>{
+    return this.httpClient.get(this.BASE_URL + '?q='+isbn).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+      );
+  } 
+
+  private extractData(res: Response) {
     let googleResponse = new GoogleResponse().deserialize(res);
-    return googleResponse.items[0].volumeInfo;
+    let volumeInfo = googleResponse.items[0].volumeInfo;
+    let book = new Book();
+    book.authors = volumeInfo.authors.join(", ");;
+    book.description = volumeInfo.description;
+    book.language = volumeInfo.language;
+    book.pageCount = volumeInfo.pageCount;
+    book.publisher = volumeInfo.publisher;
+    book.publishedDate = new Date(volumeInfo.publishedDate);
+    book.title = volumeInfo.title;
+    book.subtitle = volumeInfo.subtitle;
+    volumeInfo.industryIdentifiers.forEach(function(iid){
+      if(iid.type=='ISBN_13'){
+        book.isbn = iid.identifier;
+      }
+    });
+    return book;
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -36,12 +59,5 @@ export class GoogleBookService {
     // return an observable with a user-facing error message
     return throwError(error);
   }
-
-  search_isbn(isbn: string): Observable<Book>{
-    return this.httpClient.get(this.BASE_URL + '?q='+isbn).pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-      );
-  } 
 
 }

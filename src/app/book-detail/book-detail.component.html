@@ -1,0 +1,75 @@
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Titolo</span>
+  </div>
+  <input type="text" class="form-control"  [(ngModel)]="book.title" [(readonly)]="readonly">
+</div>
+<div class="input-group mb-3"  *ngIf="book.subtitle">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Sottotitolo</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="book.subtitle" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3" *ngIf="book.authors">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Autori</span>
+      </div>
+      <input type="text" class="form-control"  [(ngModel)]="book.authors" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Editore</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="book.publisher" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3"  *ngIf="book.publishedDate">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Data di pubblicazione</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="book.publishedDate" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3"  *ngIf="book.pageCount">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Numero di Pagine</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="book.pageCount" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3" *ngIf="book.language">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Lingua</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="book.language" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Isbn</span>
+      </div>
+      <input type="text" class="form-control"  [(ngModel)]="book.isbn" [(readonly)]="readonly">
+    </div>
+  <div class="input-group mb-3" *ngFor="let regDate of book.registrationDates">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Data di registrazione</span>
+    </div>
+    <input type="text" class="form-control" value={{regDate}} readonly>
+  </div>
+  <div class="input-group mb-3" *ngFor="let delDate of book.deliveryDates">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Data di consegna</span>
+    </div>
+    <input type="text" class="form-control" value={{delDate}} readonly>
+  </div>
+  <div class="input-group mb-3" *ngIf="book.numberOfCopy">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Numero di copie</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="book.numberOfCopy" readonly>
+  </div>
+  <div class="input-group" *ngIf="book.description">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Descrizione</span>
+    </div>
+    <textarea class="form-control" [(ngModel)]="book.description" [(readonly)]="readonly"></textarea>
+  </div>
+
+

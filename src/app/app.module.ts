@@ -10,13 +10,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
 import { JwtInterceptor } from './jwt.interceptor';
 import { InserisciComponent } from './inserisci/inserisci.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { InsertButtonsComponent } from './insert-buttons/insert-buttons.component';
+import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    InserisciComponent
+    InserisciComponent,
+    BookDetailComponent,
+    InsertButtonsComponent,
+    BarcodeReaderComponent
   ],
   imports: [
     BrowserModule,

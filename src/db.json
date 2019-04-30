@@ -2,5 +2,1008 @@
   "authenticate": {
     "username": "set",
     "password": "set"
+  },
+  "books": [
+    {
+      "id": 2,
+      "isbn": "9788858706152",
+      "title": "Il nome della rosa",
+      "subtitle": "",
+      "authors": "Umberto Eco",
+      "publisher": "Giunti",
+      "publishedDate": "2012-01-01",
+      "description": "Ultima settimana del novembre 1327. Il novizio Adso da Melk accompagna in un'abbazia dell'alta Italia frate Guglielmo da Baskerville, incaricato di una sottile e imprecisa missione diplomatica. Ex inquisitore, amico di Guglielmo di Occam e di Marsilio da Padova, frate Guglielmo si trova a dover dipanare una serie di misteriosi delitti (sette in sette giorni, perpetrati nel chiuso della cinta abbaziale) che insanguinano una biblioteca labirintica e inaccessibile. Per risolvere il caso, Guglielmo dovrà decifrare indizi di ogni genere, dal comportamento dei santi a quello degli eretici, dalle scritture negromantiche al linguaggio delle erbe, da manoscritti in lingue ignote alle mosse diplomatiche degli uomini di potere. La soluzione arriverà, forse troppo tardi, in termini di giorni, forse troppo presto, in termini di secoli. ",
+      "pageCount": 600,
+      "language": "it",
+      "libraryMetadata": {
+        "registrationDates": [
+          "2019-04-26"
+        ],
+        "deliveryDates": [],
+        "numberOfCopy": 1
+      }
+    },
+    {
+      "id": 1,
+      "isbn": "9788804528647",
+      "title": "Trilogia della fondazione",
+      "subtitle": "Volume 92 di Grandi classici",
+      "authors": "Isaac Asimov, Carlo Fruttero, Franco Lucentini",
+      "publisher": "Mondadori",
+      "publishedDate": "2004-01-01",
+      "description": "Sono qui riuniti i tre romanzi della Fondazione, la grandiosa saga premiata nel 1966 come miglior ciclo fantascientifico di ogni tempo. La vicenda, ambientata in un lontano futuro, ha inizio quando l'Impero Galattico, che da secoli esercita il suo potere su tutti i pianeti conosciuti, scompare, e si annunciano trentamila anni di ignoranza e violenza. Hari Seldon, creatore della rivoluzionaria scienza della 'psicostoria', sa quale triste futuro aspetta l'umanità. Per preservare la civiltà, decide di riunire i migliori scienziati e studiosi su Terminus, un piccolo pianeta ai margini della Galassia. È la Fondazione, rimasta l'unico faro del sapere, ma sotto la perenne minaccia dei mutanti che intendono distruggerla.",
+      "pageCount": 628,
+      "language": "it",
+      "libraryMetadata": {
+        "registrationDates": [
+          "2019-04-27"
+        ],
+        "deliveryDates": [
+          "2019-04-28"
+        ],
+        "numberOfCopy": 0
+      }
+    },
+    {
+      "id": 3,
+      "isbn": "9788804528647",
+      "title": "Gödel, Escher, Bach: un'eterna ghirlanda brillante",
+      "subtitle": "una fuga metaforica su menti e macchine nello spirito di Lewis Caroll",
+      "authors": "Douglas R. Hofstadter",
+      "publisher": "Adelphi",
+      "publishedDate": "1984-01-01",
+      "description": "",
+      "pageCount": 852,
+      "language": "it",
+      "libraryMetadata": {
+        "registrationDates": [
+          "2019-04-28",
+          "2019-04-29",
+          "2019-04-30"
+        ],
+        "deliveryDates": [
+          "2019-04-29"
+        ],
+        "numberOfCopy": 2
+      }
+    },
+    {
+      "authors": "Michela Murgia",
+      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
+      "language": "it",
+      "pageCount": 176,
+      "publisher": "Giulio Einaudi Editore",
+      "publishedDate": "2010-10-07T00:00:00.000Z",
+      "title": "Accabadora",
+      "isbn": "9788858400098",
+      "apiId": "vi",
+      "id": 5
+    },
+    {
+      "authors": "Michela Murgia",
+      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
+      "language": "it",
+      "pageCount": 176,
+      "publisher": "Giulio Einaudi Editore",
+      "publishedDate": "2010-10-07T00:00:00.000Z",
+      "title": "Accabadora",
+      "isbn": "9788858400098",
+      "apiId": "vi",
+      "id": 6
+    },
+    {
+      "authors": "Michela Murgia",
+      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
+      "language": "it",
+      "pageCount": 176,
+      "publisher": "Giulio Einaudi Editore",
+      "publishedDate": "2010-10-07T00:00:00.000Z",
+      "title": "Accabadora",
+      "isbn": "9788858400098",
+      "apiId": "vi",
+      "id": 7
+    },
+    {
+      "authors": "Michela Murgia",
+      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
+      "language": "it",
+      "pageCount": 176,
+      "publisher": "Giulio Einaudi Editore",
+      "publishedDate": "2010-10-07T00:00:00.000Z",
+      "title": "Accabadora",
+      "isbn": "9788858400098",
+      "apiId": "vi",
+      "id": 8
+    }
+  ],
+  "google": {
+    "kind": "books#volumes",
+    "totalItems": 248,
+    "items": [
+      {
+        "kind": "books#volume",
+        "id": "4qY5X2GOGZsC",
+        "etag": "AIA97jNI0f0",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/4qY5X2GOGZsC",
+        "volumeInfo": {
+          "title": "Accabadora",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Giulio Einaudi Editore",
+          "publishedDate": "2010-10-07",
+          "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788858400098"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8858400097"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 176,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "averageRating": 4.5,
+          "ratingsCount": 4,
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "3.20.17.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=4qY5X2GOGZsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=4qY5X2GOGZsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=4qY5X2GOGZsC&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=1&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=4qY5X2GOGZsC&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-4qY5X2GOGZsC"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=4qY5X2GOGZsC&rdid=book-4qY5X2GOGZsC&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Accabadora-sample-epub.acsm?id=4qY5X2GOGZsC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Accabadora-sample-pdf.acsm?id=4qY5X2GOGZsC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=4qY5X2GOGZsC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "«Acabar», in spagnolo, significa finire."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "xYn8DQAAQBAJ",
+        "etag": "2cuPad1vfVA",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/xYn8DQAAQBAJ",
+        "volumeInfo": {
+          "title": "Il mondo deve sapere",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Giulio Einaudi Editore",
+          "publishedDate": "2017-01-31",
+          "description": "«Ma cosa fa il Kirby con esattezza? Per esempio aspira la polvere Ma fa anche i massaggi alla Cervicale stura i lavandini tinteggia i muri e igienizza il cane e il gatto».",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788858424759"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8858424751"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 160,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "1.17.16.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=xYn8DQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=xYn8DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=xYn8DQAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=2&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=xYn8DQAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-xYn8DQAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=xYn8DQAAQBAJ&rdid=book-xYn8DQAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Il_mondo_deve_sapere-sample-epub.acsm?id=xYn8DQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Il_mondo_deve_sapere-sample-pdf.acsm?id=xYn8DQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=xYn8DQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "«Ma cosa fa il Kirby con esattezza? Per esempio aspira la polvere Ma fa anche i massaggi alla Cervicale stura i lavandini tinteggia i muri e igienizza il cane e il gatto»."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "BcWGDwAAQBAJ",
+        "etag": "viTVDYZAMSI",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/BcWGDwAAQBAJ",
+        "volumeInfo": {
+          "title": "Noi siamo tempesta",
+          "subtitle": "Storie senza eroe che hanno cambiato il mondo",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Salani",
+          "publishedDate": "2019-02-11T00:00:00+01:00",
+          "description": "Sventurata è la terra che ha bisogno di eroi, scriveva Bertolt Brecht, ma è difficile credere che avesse ragione se poi le storie degli eroi sono le prime che sentiamo da bambini, le sole che studiamo da ragazzi e le uniche che ci ispirano da adulti. La figura del campione solitario è esaltante, ma non appartiene alla nostra norma: è l’eccezione. La vita quotidiana è fatta invece di imprese mirabili compiute da persone del tutto comuni che hanno saputo mettersi insieme e fidarsi le une delle altre. È così che è nata Wikipedia, che è stato svelato il codice segreto dei nazisti in guerra e che la lotta al razzismo è entrata in tutte le case di chi nel ‘68 guardava le Olimpiadi. Michela Murgia ha scelto sedici avventure collettive famosissime o del tutto sconosciute e le ha raccontate come imprese corali, perché l’eroismo è la strada di pochi, ma la collaborazione creativa è un superpotere che appartiene a tutti. Una tempesta alla fine sono solo milioni di gocce d’acqua, ma col giusto vento. Disegnato da The World of Dot Con un fumetto di Paolo Bacilieri",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788831000048"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8831000047"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 128,
+          "printType": "BOOK",
+          "categories": [
+            "Juvenile Nonfiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "1.5.4.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=BcWGDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=BcWGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=BcWGDwAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=3&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=BcWGDwAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-BcWGDwAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 8.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 8.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=BcWGDwAAQBAJ&rdid=book-BcWGDwAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 8990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 8990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Noi_siamo_tempesta-sample-epub.acsm?id=BcWGDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Noi_siamo_tempesta-sample-pdf.acsm?id=BcWGDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=BcWGDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Michela Murgia ha scelto sedici avventure collettive famosissime o del tutto sconosciute e le ha raccontate come imprese corali, perché l’eroismo è la strada di pochi, ma la collaborazione creativa è un superpotere che appartiene a ..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "_lzzDQAAQBAJ",
+        "etag": "gCBo4yYoS7g",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/_lzzDQAAQBAJ",
+        "volumeInfo": {
+          "title": "Florence Gordon",
+          "authors": [
+            "Brian Morton"
+          ],
+          "publisher": "Marsilio Editori spa",
+          "publishedDate": "2015-09-17T00:00:00+02:00",
+          "description": "Florence Gordon ha settantacinque anni e vive a Manhattan. Femminista ebrea divorziata, scrittrice scorbutica, attivista testarda e orgogliosa, detesta la maggior parte delle cose che la gente trova piacevoli e ama mettere gli altri in difficoltà. Mentre è alle prese con la sua settima fatica, un libro di memorie, un articolo del «New York Times» la definisce “patrimonio nazionale”, catapultandola sotto le luci della ribalta e obbligandola a superare quel fi lo spinato che aveva eretto intorno a sé. La situazione precipita quando i suoi “cari” si trasferiscono da Seattle a New York: il figlio Daniel (che ha snobbato le orme letterarie dei genitori per diventare poliziotto), la nuora Janine (psicologa, pronta ad avere una relazione con il suo capo) e la nipote Emily (che sta cercando di capire cosa fare di una problematica storia d’amore). Tra i quattro, giorno dopo giorno, si intreccia una commedia irresistibile, all’insegna di una crudele sincerità ma anche di una sorprendente complicità emotiva. L’anziana signora, i cui corrosivi commenti sono una sorta di “versione di Barney” al femminile, non risparmia niente e nessuno. E forse proprio per questo i personaggi che la circondano (e i lettori di questo libro) finiranno per affezionarsi a lei e non poter più fare a meno della sua voce.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788845497643"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "884549764X"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 320,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "1.4.4.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=_lzzDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=_lzzDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=_lzzDQAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=4&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=_lzzDQAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-_lzzDQAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 9.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 9.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=_lzzDQAAQBAJ&rdid=book-_lzzDQAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 9990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 9990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Florence_Gordon-sample-epub.acsm?id=_lzzDQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Florence_Gordon-sample-pdf.acsm?id=_lzzDQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=_lzzDQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Florence Gordon ha settantacinque anni e vive a Manhattan."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "l7Z1DwAAQBAJ",
+        "etag": "THl9Rt9tVqM",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/l7Z1DwAAQBAJ",
+        "volumeInfo": {
+          "title": "Istruzioni per diventare fascisti",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Giulio Einaudi Editore",
+          "publishedDate": "2018-10-30",
+          "description": "«Essere democratici è una fatica immane. Allora perché continuiamo a esserlo quando possiamo prendere una scorciatoia piú rapida e sicura?»",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788858430033"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8858430034"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 104,
+          "printType": "BOOK",
+          "categories": [
+            "Political Science"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "1.15.15.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=l7Z1DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=l7Z1DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=l7Z1DwAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=5&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=l7Z1DwAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-l7Z1DwAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=l7Z1DwAAQBAJ&rdid=book-l7Z1DwAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Istruzioni_per_diventare_fascisti-sample-epub.acsm?id=l7Z1DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Istruzioni_per_diventare_fascisti-sample-pdf.acsm?id=l7Z1DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=l7Z1DwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "«Essere democratici è una fatica immane. Allora perché continuiamo a esserlo quando possiamo prendere una scorciatoia piú rapida e sicura?»"
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "7Y4eQwAACAAJ",
+        "etag": "+0pjv9Lv9MA",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/7Y4eQwAACAAJ",
+        "volumeInfo": {
+          "title": "La parte migliore del giorno",
+          "authors": [
+            "Philippe Delerm"
+          ],
+          "publishedDate": "2010",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "8888320539"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9788888320533"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": false
+          },
+          "pageCount": 155,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "preview-1.0.0",
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=7Y4eQwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=7Y4eQwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=7Y4eQwAACAAJ&dq=9788806221898+isbn&hl=&cd=6&source=gbs_api",
+          "infoLink": "http://books.google.it/books?id=7Y4eQwAACAAJ&dq=9788806221898+isbn&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/La_parte_migliore_del_giorno.html?hl=&id=7Y4eQwAACAAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "NO_PAGES",
+          "embeddable": false,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": false
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=7Y4eQwAACAAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "NONE",
+          "quoteSharingAllowed": false
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "dDNw6DYXRKsC",
+        "etag": "TiFdagsB/EU",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/dDNw6DYXRKsC",
+        "volumeInfo": {
+          "title": "L'incontro",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Giulio Einaudi Editore",
+          "publishedDate": "2012",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788806212667"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8806212664"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 107,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "1.1.0.0.preview.1",
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=dDNw6DYXRKsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=dDNw6DYXRKsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=dDNw6DYXRKsC&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=7&source=gbs_api",
+          "infoLink": "http://books.google.it/books?id=dDNw6DYXRKsC&dq=9788806221898+isbn&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/L_incontro.html?hl=&id=dDNw6DYXRKsC"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": false
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=dDNw6DYXRKsC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "&quot;Maurizio is ten years old and can not wait to begin the holidays."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "ihZnDwAAQBAJ",
+        "etag": "vbxerjTiokg",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/ihZnDwAAQBAJ",
+        "volumeInfo": {
+          "title": "L'inferno è una buona memoria",
+          "subtitle": "Visioni da \"Le nebbie di Avalon\" di Marion Zimmer Bradley",
+          "authors": [
+            "Michela Murgia",
+            "Marion Zimmer Bradley"
+          ],
+          "publisher": "Marsilio Editori spa",
+          "publishedDate": "2018-08-30T00:00:00+02:00",
+          "description": "Da una lettura a una vita: gli scrittori italiani raccontano del mondo e di sé partendo da un libro. Questa è \"PassaParola\". Quanto somiglia Cabras, Sardegna, paese natale di Michela Murgia, ad Avalon, Britannia, luogo mitico legato a Re Artù? Come Morgana, Igraine e Viviana, le “Signore del Lago”, hanno il potere di sollevare le nebbie con le loro parole, influenzare e curare le vite dei cavalieri della Tavola Rotonda, così Michela Murgia, nata in mezzo alle acque di Cabras, ha il potere di sollevare le nebbie intorno alle storie e alle idee che stanno alla base dei suoi romanzi e dei suoi saggi: la versione delle donne, la versione degli uomini, la versione di Dio. In un viaggio che comincia in mezzo al mare e in mezzo al mare ritorna, Michela Murgia, una delle maggiori scrittrici italiane, racconta come e perché è diventata femminista, come e perché ha cominciato a temere le gerarchie religiose, come e perché non ha mai smesso di giocare di ruolo nel mondo magico di Lot, come e perché certi libri che ci hanno fatto crescere, in effetti, li abbiamo mangiati più che letti, e soprattutto come e perché creare ogni giorno il mondo che ci circonda è un gesto politico.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788831744591"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8831744593"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 128,
+          "printType": "BOOK",
+          "categories": [
+            "Literary Criticism"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "1.1.2.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=ihZnDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=ihZnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=ihZnDwAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=8&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=ihZnDwAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-ihZnDwAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 7.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=ihZnDwAAQBAJ&rdid=book-ihZnDwAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 7990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/L_inferno_%C3%A8_una_buona_memoria-sample-epub.acsm?id=ihZnDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/L_inferno_%C3%A8_una_buona_memoria-sample-pdf.acsm?id=ihZnDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=ihZnDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "In un viaggio che comincia in mezzo al mare e in mezzo al mare ritorna, Michela Murgia, una delle maggiori scrittrici italiane, racconta come e perché è diventata femminista, come e perché ha cominciato a temere le gerarchie religiose, ..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "IsnlCgAAQBAJ",
+        "etag": "Fd09YeBVULk",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/IsnlCgAAQBAJ",
+        "volumeInfo": {
+          "title": "Chirù",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publisher": "Giulio Einaudi Editore",
+          "publishedDate": "2015-11-10",
+          "description": "Amarsi vuol dire perdere l'equilibrio, derubarsi l'un l'altro, attrarsi e spaventarsi, scambiarsi di posto: è questo che fanno Eleonora e Chirú. La loro è una storia di apprendistato, dono, manipolazione e gioventú. Lei maestra, lui allievo, ma entrambi impreparati davanti alla lezione piú difficile: quando l'amore smette di essere una forza e diventa un potere?",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9788858420942"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "8858420942"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 152,
+          "printType": "BOOK",
+          "categories": [
+            "Fiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": true,
+          "contentVersion": "1.20.19.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=IsnlCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=IsnlCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=IsnlCgAAQBAJ&printsec=frontcover&dq=9788806221898+isbn&hl=&cd=9&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=IsnlCgAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://market.android.com/details?id=book-IsnlCgAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 9.99,
+            "currencyCode": "EUR"
+          },
+          "retailPrice": {
+            "amount": 9.99,
+            "currencyCode": "EUR"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=IsnlCgAAQBAJ&rdid=book-IsnlCgAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 9990000,
+                "currencyCode": "EUR"
+              },
+              "retailPrice": {
+                "amountInMicros": 9990000,
+                "currencyCode": "EUR"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Chir%C3%B9-sample-epub.acsm?id=IsnlCgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.it/books/download/Chir%C3%B9-sample-pdf.acsm?id=IsnlCgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=IsnlCgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Amarsi vuol dire perdere l&#39;equilibrio, derubarsi l&#39;un l&#39;altro, attrarsi e spaventarsi, scambiarsi di posto: è questo che fanno Eleonora e Chirú."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "rvn2swEACAAJ",
+        "etag": "DL9zphRpz4o",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/rvn2swEACAAJ",
+        "volumeInfo": {
+          "title": "Persone che devi conoscere",
+          "authors": [
+            "Michela Murgia"
+          ],
+          "publishedDate": "2018",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "882503959X"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9788825039597"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": false
+          },
+          "pageCount": 240,
+          "printType": "BOOK",
+          "categories": [
+            "Biography & Autobiography"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "preview-1.0.0",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=rvn2swEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=rvn2swEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+          },
+          "language": "it",
+          "previewLink": "http://books.google.it/books?id=rvn2swEACAAJ&dq=9788806221898+isbn&hl=&cd=10&source=gbs_api",
+          "infoLink": "http://books.google.it/books?id=rvn2swEACAAJ&dq=9788806221898+isbn&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Persone_che_devi_conoscere.html?hl=&id=rvn2swEACAAJ"
+        },
+        "saleInfo": {
+          "country": "IT",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "IT",
+          "viewability": "NO_PAGES",
+          "embeddable": false,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": false
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=rvn2swEACAAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "NONE",
+          "quoteSharingAllowed": false
+        }
+      }
+    ]
   }
 }
