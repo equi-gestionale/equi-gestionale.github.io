@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {GoogleBookService} from '../services/google-book.service';
+import { BooksService } from '../services/books.service';
 import { Book } from '../models/book.model';
 
 @Component({
-  selector: 'app-inserisci',
-  templateUrl: './inserisci.component.html',
-  styleUrls: ['./inserisci.component.css']
+  selector: 'app-scarica',
+  templateUrl: './scarica.component.html',
+  styleUrls: ['./scarica.component.css']
 })
-export class InserisciComponent implements OnInit {
+export class ScaricaComponent implements OnInit {
 
   showManualInsert: boolean;
   showBarcodeReader: boolean;
@@ -17,7 +17,7 @@ export class InserisciComponent implements OnInit {
   book: Book;
   
 
-  constructor(private googleApi: GoogleBookService) { 
+  constructor(private booksService: BooksService) { 
     this.showBarcodeReader = true;
     this.showBookDetail = false;
     this.showManualInsert = false;
@@ -43,16 +43,18 @@ export class InserisciComponent implements OnInit {
   searchIsbn(){
     console.log(this.searchValue);
     this.barcode = this.searchValue;
-    this.googleApi.searchIsbn(this.barcode).subscribe(
-      book => {
-        this.book = book;
-        console.log(this.book);
-        if(this.book.isbn!=this.barcode){
-          this.book.isbn = this.barcode;
+    this.booksService.searchIsbn(this.barcode).subscribe(
+      books => {
+          if(books.length>0){
+          this.book = books[0];
+          console.log(this.book);
+          if(this.book.isbn==''){
+            this.book.isbn = this.barcode;
+          }
+          this.showBookDetail = true;
+          this.showManualInsert = false;
+          this.showBarcodeReader = false;
         }
-        this.showBookDetail = true;
-        this.showManualInsert = false;
-        this.showBarcodeReader = false;
       }
     );
   }

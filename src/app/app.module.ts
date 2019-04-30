@@ -13,6 +13,7 @@ import { InserisciComponent } from './inserisci/inserisci.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { InsertButtonsComponent } from './insert-buttons/insert-buttons.component';
 import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.component';
+import { ScaricaComponent } from './scarica/scarica.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.componen
     InserisciComponent,
     BookDetailComponent,
     InsertButtonsComponent,
-    BarcodeReaderComponent
+    BarcodeReaderComponent,
+    ScaricaComponent
   ],
   imports: [
     BrowserModule,

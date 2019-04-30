@@ -27,22 +27,25 @@ export class GoogleBookService {
   } 
 
   private extractData(res: Response) {
-    let googleResponse = new GoogleResponse().deserialize(res);
-    let volumeInfo = googleResponse.items[0].volumeInfo;
     let book = new Book();
-    book.authors = volumeInfo.authors.join(", ");;
-    book.description = volumeInfo.description;
-    book.language = volumeInfo.language;
-    book.pageCount = volumeInfo.pageCount;
-    book.publisher = volumeInfo.publisher;
-    book.publishedDate = new Date(volumeInfo.publishedDate);
-    book.title = volumeInfo.title;
-    book.subtitle = volumeInfo.subtitle;
-    volumeInfo.industryIdentifiers.forEach(function(iid){
-      if(iid.type=='ISBN_13'){
-        book.isbn = iid.identifier;
-      }
-    });
+    let googleResponse = new GoogleResponse().deserialize(res);
+    if(googleResponse.totalItems!=0){
+      let volumeInfo = googleResponse.items[0].volumeInfo;
+
+      book.authors = volumeInfo.authors.join(", ");;
+      book.description = volumeInfo.description;
+      book.language = volumeInfo.language;
+      book.pageCount = volumeInfo.pageCount;
+      book.publisher = volumeInfo.publisher;
+      book.publishedDate = new Date(volumeInfo.publishedDate);
+      book.title = volumeInfo.title;
+      book.subtitle = volumeInfo.subtitle;
+      volumeInfo.industryIdentifiers.forEach(function(iid){
+        if(iid.type=='ISBN_13'){
+          book.isbn = iid.identifier;
+        }
+      });
+    }
     return book;
   }
 

@@ -18,7 +18,7 @@ const httpOptions = {
 export class BooksService {
 
   private enVar;
-  private BASE_URL = 'http://localhost:3000/api/vi/books/'
+  private BASE_URL = 'http://localhost:3000/api/v1/library/books'
 
   constructor(private httpClient: HttpClient) { 
     this.enVar = environment;
@@ -26,6 +26,20 @@ export class BooksService {
 
   insertBook(book: Book): Observable<Book>{
     return this.httpClient.post<Book>(this.BASE_URL, book, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchIsbn(isbn: string): Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.BASE_URL+"?isbn="+isbn, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteIsbn(id: number): Observable<Book>{
+    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id, httpOptions)
     .pipe(
       catchError(this.handleError)
     );

@@ -46,7 +46,7 @@
     },
     {
       "id": 3,
-      "isbn": "9788804528647",
+      "isbn": "9788845907555",
       "title": "Gödel, Escher, Bach: un'eterna ghirlanda brillante",
       "subtitle": "una fuga metaforica su menti e macchine nello spirito di Lewis Caroll",
       "authors": "Douglas R. Hofstadter",
@@ -75,45 +75,8 @@
       "publisher": "Giulio Einaudi Editore",
       "publishedDate": "2010-10-07T00:00:00.000Z",
       "title": "Accabadora",
-      "isbn": "9788858400098",
-      "apiId": "vi",
-      "id": 5
-    },
-    {
-      "authors": "Michela Murgia",
-      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
-      "language": "it",
-      "pageCount": 176,
-      "publisher": "Giulio Einaudi Editore",
-      "publishedDate": "2010-10-07T00:00:00.000Z",
-      "title": "Accabadora",
-      "isbn": "9788858400098",
-      "apiId": "vi",
-      "id": 6
-    },
-    {
-      "authors": "Michela Murgia",
-      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
-      "language": "it",
-      "pageCount": 176,
-      "publisher": "Giulio Einaudi Editore",
-      "publishedDate": "2010-10-07T00:00:00.000Z",
-      "title": "Accabadora",
-      "isbn": "9788858400098",
-      "apiId": "vi",
-      "id": 7
-    },
-    {
-      "authors": "Michela Murgia",
-      "description": "«Acabar», in spagnolo, significa finire. E in sardo «accabadora» è colei che finisce. Agli occhi della comunità il suo non è il gesto di un'assassina, ma quello amorevole e pietoso di chi aiuta il destino a compiersi. È lei l'ultima madre.",
-      "language": "it",
-      "pageCount": 176,
-      "publisher": "Giulio Einaudi Editore",
-      "publishedDate": "2010-10-07T00:00:00.000Z",
-      "title": "Accabadora",
-      "isbn": "9788858400098",
-      "apiId": "vi",
-      "id": 8
+      "isbn": "9788806221898",
+      "id": 4
     }
   ],
   "google": {

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
+import { ScaricaComponent } from './scarica/scarica.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'inserisci',
     component: InserisciComponent
+  },
+  {
+    path: 'scarica',
+    component: ScaricaComponent
   },
 
   // otherwise redirect to home
