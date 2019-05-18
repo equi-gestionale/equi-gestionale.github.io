@@ -17,12 +17,9 @@ const httpOptions = {
 })
 export class BooksService {
 
-  private enVar;
-  private BASE_URL = 'http://localhost:3000/api/v1/library/books'
+  private BASE_URL = environment.apiEquilibristiWs+'/api/v1/library/books';
 
-  constructor(private httpClient: HttpClient) { 
-    this.enVar = environment;
-  }
+  constructor(private httpClient: HttpClient) {}
 
   insertBook(book: Book): Observable<Book>{
     return this.httpClient.post<Book>(this.BASE_URL, book, httpOptions)

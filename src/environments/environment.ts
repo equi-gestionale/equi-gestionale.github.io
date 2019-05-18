@@ -1,3 +1,5 @@
+import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -5,7 +7,8 @@
 export const environment = {
   production: false,
   apiHost: 'localhost:4200',
-  apiProtocol: 'http://'
+  apiProtocol: 'http://',
+  apiEquilibristiWs: 'http://localhost:3000'
 };
 
 /*
