@@ -11,6 +11,7 @@ export class InsertButtonsComponent implements OnInit {
 
   @Input() book: Book;
   @Input() type: string;
+  @Input() showAlerts: boolean;
   private showSuccessAlert = false;
   private showErrorAlert = false;
   private showSaveButton = false;
@@ -27,35 +28,42 @@ export class InsertButtonsComponent implements OnInit {
     }else if(this.type=="discard"){
       this.showDiscardButton = true;
     }
+    this.showAlerts = false;
     console.log(this.showSaveButton+" on init show save button")
   }
 
 
   save(){
+    this.showAlerts = false;
     console.log(this.book);
     this.booksService.insertBook(this.book).subscribe(
       book => {
         console.log(this.book);
+        this.showAlerts = true;
         this.showSuccessAlert = true;
         this.book = book;
       },
       error => {
         console.log(error);
+        this.showAlerts = true;
         this.showErrorAlert = true;
       }
     );
   }
 
   discard(){
+    this.showAlerts = false;
     console.log(this.book);
     this.booksService.deleteIsbn(this.book.id).subscribe(
       book => {
         console.log(this.book);
+        this.showAlerts = true;
         this.showSuccessAlert = true;
         this.book = book;
       },
       error => {
         console.log(error);
+        this.showAlerts = true;
         this.showErrorAlert = true;
       }
     );

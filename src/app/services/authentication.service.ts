@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { User } from '../user';
 import { environment } from '../../environments/environment';
 
@@ -33,9 +33,9 @@ export class AuthenticationService {
                   localStorage.setItem('currentUser', JSON.stringify(user));
                   this.currentUserSubject.next(user);
               }
-
               return user;
-          }));
+            })
+          );
   }
 
   logout() {

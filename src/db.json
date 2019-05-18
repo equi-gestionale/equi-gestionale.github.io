@@ -1,7 +1,7 @@
 {
   "authenticate": {
-    "username": "set",
-    "password": "set"
+    "username": "test",
+    "password": "test"
   },
   "books": [
     {

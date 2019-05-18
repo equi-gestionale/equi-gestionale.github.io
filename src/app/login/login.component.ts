@@ -57,7 +57,11 @@ export class LoginComponent implements OnInit {
                   this.router.navigate([this.returnUrl]);
               },
               error => {
-                  this.error = error;
+                  if(error='Forbidden'){
+                    this.error = 'username o password non valide';
+                  }else{
+                      this.error = 'Qualcosa è andato storto';
+                  }
                   this.loading = false;
               });
   }

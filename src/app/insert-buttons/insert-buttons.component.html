@@ -1,11 +1,13 @@
 <button type="button" class="btn btn-success" (click)="save()" *ngIf="showSaveButton">Salva</button>
 <button type="button" class="btn btn-danger" (click)="discard()" *ngIf="showDiscardButton"> Scarica</button>
 <br>
-<div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
-  Salvataggio del libro avvenuto con successo!
-</div>
-<div class="alert alert-danger" role="alert" *ngIf="showErrorAlert">
-  Qualcosa è andato storto!!
+<div  *ngIf="showAlerts">
+  <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
+    Salvataggio del libro avvenuto con successo!
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="showErrorAlert">
+    Qualcosa è andato storto!!
+  </div>
 </div>
 
 
