@@ -15,6 +15,6 @@ export class Book {
 
   export class LibraryMetadata{
     registrationDates:Date[];
-    deliveryDate:Date[];
+    deliveryDates:Date[];
     numberOfCopy:number;
   }
