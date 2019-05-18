@@ -14,8 +14,8 @@ export class InsertButtonsComponent implements OnInit {
   @Input() showAlerts: boolean;
   private showSuccessAlert = false;
   private showErrorAlert = false;
-  private showSaveButton = false;
-  private showDiscardButton = false;
+  showSaveButton = false;
+  showDiscardButton = false;
 
   constructor(private booksService: BooksService) {}
 
