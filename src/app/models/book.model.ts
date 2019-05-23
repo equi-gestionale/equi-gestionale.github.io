@@ -1,10 +1,10 @@
 
 export class Book {
     id: number;
-    isbn: string;
     title: string;
-    subtitle: string;
     authors: string;
+    subtitle: string;
+    isbn: string;
     publisher: string;
     publishedDate: Date;
     description: string;
@@ -17,4 +17,17 @@ export class Book {
     registrationDates:Date[];
     deliveryDates:Date[];
     numberOfCopy:number;
+  }
+
+  export class BooksPage{
+    content: Book[];
+    totalPages: number;
+    totalElements:number;
+    last:boolean;
+    size:number;
+    number:number;
+    numberOfElements:number;
+    first:boolean;
+    empty:boolean;
+
   }

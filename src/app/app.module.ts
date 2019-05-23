@@ -14,6 +14,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { InsertButtonsComponent } from './insert-buttons/insert-buttons.component';
 import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.component';
 import { ScaricaComponent } from './scarica/scarica.component';
+import { CatalogoComponent } from './catalogo/catalogo.component';
+import { BookAccordionComponent } from './book-accordion/book-accordion.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,17 @@ import { ScaricaComponent } from './scarica/scarica.component';
     BookDetailComponent,
     InsertButtonsComponent,
     BarcodeReaderComponent,
-    ScaricaComponent
+    ScaricaComponent,
+    CatalogoComponent,
+    BookAccordionComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

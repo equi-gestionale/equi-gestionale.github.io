@@ -17,7 +17,7 @@
       </div>
       <input type="text" class="form-control"  [(ngModel)]="book.authors" [(readonly)]="readonly">
   </div>
-  <div class="input-group mb-3">
+  <div class="input-group mb-3" *ngIf="book.publisher">
     <div class="input-group-prepend">
       <span class="input-group-text">Editore</span>
     </div>
@@ -47,23 +47,25 @@
       </div>
       <input type="text" class="form-control"  [(ngModel)]="book.isbn" [(readonly)]="readonly">
     </div>
-  <div class="input-group mb-3" *ngFor="let regDate of book.libraryMetadata.registrationDates">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Data di registrazione</span>
+  <div *ngIf=book.libraryMetadata>  
+    <div class="input-group mb-3" *ngFor="let regDate of book.libraryMetadata.registrationDates">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Data di registrazione</span>
+      </div>
+      <input type="text" class="form-control" value={{regDate}} readonly>
     </div>
-    <input type="text" class="form-control" value={{regDate}} readonly>
-  </div>
-  <div class="input-group mb-3" *ngFor="let delDate of book.libraryMetadata.deliveryDates">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Data di consegna</span>
+    <div class="input-group mb-3" *ngFor="let delDate of book.libraryMetadata.deliveryDates">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Data di consegna</span>
+      </div>
+      <input type="text" class="form-control" value={{delDate}} readonly>
     </div>
-    <input type="text" class="form-control" value={{delDate}} readonly>
-  </div>
-  <div class="input-group mb-3" *ngIf="book.libraryMetadata.numberOfCopy">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Numero di copie</span>
+    <div class="input-group mb-3" *ngIf="book.libraryMetadata.numberOfCopy">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Numero di copie</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.numberOfCopy" readonly>
     </div>
-    <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.numberOfCopy" readonly>
   </div>
   <div class="input-group" *ngIf="book.description">
     <div class="input-group-prepend">

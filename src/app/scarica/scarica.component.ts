@@ -44,9 +44,9 @@ export class ScaricaComponent implements OnInit {
     console.log(this.searchValue);
     this.barcode = this.searchValue;
     this.booksService.searchIsbn(this.barcode).subscribe(
-      books => {
-          if(books.length>0){
-          this.book = books[0];
+      booksPage => {
+          if(booksPage.content.length>0){
+          this.book = booksPage.content[0];
           console.log(this.book);
           if(this.book.isbn==''){
             this.book.isbn = this.barcode;

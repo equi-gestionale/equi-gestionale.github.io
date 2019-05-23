@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Book } from '../models/book.model';
+import { Book, BooksPage } from '../models/book.model';
 
 
 const httpOptions = {
@@ -28,8 +28,8 @@ export class BooksService {
     );
   }
 
-  searchIsbn(isbn: string): Observable<Book[]>{
-    return this.httpClient.get<Book[]>(this.BASE_URL+"?isbn="+isbn, httpOptions)
+  searchIsbn(isbn: string): Observable<BooksPage>{
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?isbn="+isbn, httpOptions)
     .pipe(
       catchError(this.handleError)
     );
@@ -37,6 +37,20 @@ export class BooksService {
 
   deleteIsbn(id: number): Observable<Book>{
     return this.httpClient.delete<Book>(this.BASE_URL+"/"+id, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  lastsInserted(): Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.BASE_URL+"?_sort=libraryMetadata.registrationDates&_order=asc", httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  lastsDeleted(): Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.BASE_URL+"?_sort=libraryMetadata.deliveryDates&_order=asc", httpOptions)
     .pipe(
       catchError(this.handleError)
     );

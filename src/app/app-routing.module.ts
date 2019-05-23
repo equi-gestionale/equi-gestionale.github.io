@@ -5,6 +5,7 @@ import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
 import { ScaricaComponent } from './scarica/scarica.component';
+import { CatalogoComponent } from './catalogo/catalogo.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'scarica',
     component: ScaricaComponent
+  },
+  {
+    path: 'catalogo',
+    component: CatalogoComponent
   },
 
   // otherwise redirect to home
