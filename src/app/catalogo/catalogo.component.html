@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row" >
+    <h2>Catalogo degli Equilibristi</h2>
+  </div>
+  <div class="row" >
+    <h3>Ultimi libri aggiunti al catalogo</h3>
+  </div>
+  <div class="row" *ngFor="let book of insBooks" >
+      <app-book-accordion [book]="book"></app-book-accordion>
+  </div>
+
+  <div class="row" >
+    <h3>Ultimi libri scaricati dal catalogo</h3>
+  </div>
+  <div class="row" *ngFor="let book of delBooks" >
+    <app-book-accordion [book]="book"></app-book-accordion><br>
+</div>

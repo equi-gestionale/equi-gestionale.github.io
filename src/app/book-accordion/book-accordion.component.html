@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header" (click)="isOpen = !isOpen">
+      {{book.authors}} - {{book.title}}
+    </div>
+    <div *ngIf="isOpen == true">
+      <div class="card-body">
+        <div>
+          Isbn: {{book.isbn}} <br>
+        </div>
+        <div *ngIf="book.publisher">
+          Editore: {{book.publisher}}<br>
+        </div>
+        <div *ngIf="book.publishedDate">
+          Data di pubblicazione {{book.publishedDate}}<br>
+        </div>  
+        <div  *ngIf="book.pageCount">
+          Numero di pagine: {{book.pageCount}}<br>
+        </div>
+        <div *ngIf="book.language">
+          Lingua: {{book.language}}<br>
+        </div>
+        <div *ngIf="book.description">
+          Descrizione: {{book.description}}<br>
+        </div>
+        <div *ngIf="book.libraryMetadata.registrationDates">
+          Date di registrazione:
+          <div *ngFor="let regDate of book.libraryMetadata.registrationDates">
+            {{regDate}} <br>
+          </div>
+        </div>
+        <div *ngIf="book.libraryMetadata.deliveryDates">
+          Date di consegna:
+          <div *ngFor="let delDate of book.libraryMetadata.deliveryDates">
+            {{delDate}} <br>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
