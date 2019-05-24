@@ -42,15 +42,15 @@ export class BooksService {
     );
   }
 
-  lastsInserted(): Observable<Book[]>{
-    return this.httpClient.get<Book[]>(this.BASE_URL+"?_sort=libraryMetadata.registrationDates&_order=asc", httpOptions)
+  lastsInserted(page:number, size:number): Observable<BooksPage>{
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?page="+page+"&size="+size+"&sort=libraryMetadata.registrationDates", httpOptions)
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  lastsDeleted(): Observable<Book[]>{
-    return this.httpClient.get<Book[]>(this.BASE_URL+"?_sort=libraryMetadata.deliveryDates&_order=asc", httpOptions)
+  lastsDeleted(page:number, size:number): Observable<BooksPage>{
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?page="+page+"&size="+size+"&sort=libraryMetadata.deliveryDates", httpOptions)
     .pipe(
       catchError(this.handleError)
     );

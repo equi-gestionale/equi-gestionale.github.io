@@ -18,18 +18,18 @@ export class CatalogoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.booksService.lastsInserted().subscribe(
-      books => {
-          if(books.length>0){
-          this.insBooks = books;
+    this.booksService.lastsInserted(0,10).subscribe(
+      booksPage => {
+          if(booksPage.content.length>0){
+          this.insBooks = booksPage.content;
           console.log(this.insBooks);
         }
       }
     );  
-    this.booksService.lastsDeleted().subscribe(
-      books => {
-          if(books.length>0){
-          this.delBooks = books;
+    this.booksService.lastsDeleted(0,10).subscribe(
+      booksPage => {
+          if(booksPage.content.length>0){
+          this.delBooks = booksPage.content;
           console.log(this.delBooks);
         }
       }
