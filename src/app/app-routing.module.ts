@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
 import { ScaricaComponent } from './scarica/scarica.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { RicercaComponent } from './ricerca/ricerca.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,10 @@ const routes: Routes = [
     path: 'catalogo',
     component: CatalogoComponent
   },
-
+  {
+    path: 'ricerca',
+    component: RicercaComponent
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

@@ -1,18 +1,20 @@
 <div class="container">
-    <h2>Inserisci un nuovo libro</h2>
+    <div class="row">
+        <h2>Inserisci un nuovo libro</h2>
+    </div>
     <div class="row" *ngIf="showBarcodeReader">
-            <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
+        <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
         <app-barcode-reader #barcodeReader (barcode)="onDetected($event)"></app-barcode-reader>
     </div>
 
     <div class="row" *ngIf="showManualInsert">
         <div class="form-inline" >
-            <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn" 
+            <div class="form-group mb-2">
+                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn" (keyup.enter)="searchIsbn()"
                     required
                     [(ngModel)]="searchValue" name="searchValue">
             </div>
-            <button class="btn btn-primary mb-2" (click)=searchIsbn()>Cerca</button>
+            <button class="btn btn-primary mx-sm-3 mb-2" (click)=searchIsbn()>Cerca</button>
         </div>
     </div>
 
@@ -23,7 +25,7 @@
     <div class="row" *ngIf="showBookDetail">
         <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
     </div>
-    <div class="row" *ngIf="showBookDetail">
+    <div *ngIf="showBookDetail">
         <app-insert-buttons [book]="book" [type]="'insert'" [showAlerts]="false"></app-insert-buttons>
     </div>
 

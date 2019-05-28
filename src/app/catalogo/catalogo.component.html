@@ -8,10 +8,21 @@
   <div class="row" *ngFor="let book of insBooks" >
       <app-book-accordion [book]="book"></app-book-accordion>
   </div>
+  <div class="row" *ngIf="totalInsPages>1">
+    <ngb-pagination [collectionSize]="totalInsBooks" [pageSize]="itemsPerPage" 
+      [(page)]="insBookPage" [maxSize]="5" [rotate]="true" (pageChange)="loadInsBooksPage($event)">
+    </ngb-pagination>
+  </div>
 
   <div class="row" >
     <h3>Ultimi libri scaricati dal catalogo</h3>
   </div>
   <div class="row" *ngFor="let book of delBooks" >
     <app-book-accordion [book]="book"></app-book-accordion><br>
+  </div>
+  <div class="row" *ngIf="totalDelPages>1">
+    <ngb-pagination [collectionSize]="totalDelBooks" [pageSize]="itemsPerPage" 
+      [(page)]="delBookPage" [maxSize]="5" [rotate]="true" (pageChange)="loadDelBooksPage($event)">
+    </ngb-pagination>
+  </div>
 </div>

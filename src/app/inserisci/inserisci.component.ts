@@ -41,6 +41,7 @@ export class InserisciComponent implements OnInit {
   }
 
   searchIsbn(){
+    this.searchValue = this.searchValue.replace('-', '').trim();
     console.log(this.searchValue);
     this.barcode = this.searchValue;
     this.googleApi.searchIsbn(this.barcode).subscribe(

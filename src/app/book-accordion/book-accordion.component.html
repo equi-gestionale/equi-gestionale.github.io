@@ -7,6 +7,9 @@
         <div>
           Isbn: {{book.isbn}} <br>
         </div>
+        <div *ngIf="book.libraryMetadata.numberOfCopy">
+          Copie disponibili: {{book.libraryMetadata.numberOfCopy}} <br>
+        </div>
         <div *ngIf="book.publisher">
           Editore: {{book.publisher}}<br>
         </div>
