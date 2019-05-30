@@ -103,11 +103,12 @@ export class BarcodeReaderComponent implements OnInit {
 
   private logCode(result) {
     console.log(result.codeResult);
-    this.result = result.codeResult.code;
+    //his.result = result.codeResult.code;
     let last_code = result.codeResult.code;
     this.last_result.push(last_code);
-    if(this.last_result.length > 10 ){
-      this.bcode = this.order_by_occurrence(this.last_result)[0]; 
+    if(this.last_result.length > 0 ){
+      //this.bcode = this.order_by_occurrence(this.last_result)[0]; 
+      this.bcode = this.last_result[0];
       this.barcode.emit(this.bcode);
       this.ref.detectChanges();
       console.log('Barcode letto : ' + this.bcode);
