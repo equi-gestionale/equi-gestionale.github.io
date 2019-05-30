@@ -11,7 +11,7 @@ export class BarcodeReaderComponent implements OnInit {
 
   @Output() barcode = new EventEmitter<string>();
   bcode = '';
-  last_result: String[];
+  last_result = [];
   result = 'nessun risultato';
 
   configQuagga2 = {
