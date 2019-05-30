@@ -12,16 +12,23 @@ export class BarcodeReaderComponent implements OnInit {
   @Output() barcode = new EventEmitter<string>();
   bcode = '';
   last_result: String[];
+  result = 'nessun risultato';
 
   configQuagga2 = {
     inputStream : {
       name : "Live",
       type : "LiveStream",
-      target: '#barcode-scanner'  
+      target: '#barcode-scanner',
+      constraints: {
+        width: 800,
+        height: 600,
+        facingMode: "environment"
+      },  
     },
-    numOfWorkers: navigator.hardwareConcurrency,
+    numOfWorkers: 2,
+    frequency: 20,
     decoder : {
-      readers : ["code_128_reader","ean_reader","ean_8_reader"],
+      readers : ["ean_reader"],
       debug: {
           drawBoundingBox: true,
           showFrequency: true,
@@ -31,8 +38,8 @@ export class BarcodeReaderComponent implements OnInit {
       multiple: false
     },
     locator: {
-      patchSize: 'medium',
-      halfSample: true,
+      patchSize: 'small',
+      halfSample: false,
       debug: {
         showCanvas: true,
         showPatches: true,
@@ -53,7 +60,7 @@ export class BarcodeReaderComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
-
+    this.result = 'nessun risultato';
     this.ref.detectChanges();
     Quagga.onProcessed((result) => this.onProcessed(result));
 
@@ -96,6 +103,7 @@ export class BarcodeReaderComponent implements OnInit {
 
   private logCode(result) {
     console.log(result.codeResult);
+    this.result = result;
     let last_code = result.codeResult.code;
     this.last_result.push(last_code);
     if(this.last_result.length > 10 ){
