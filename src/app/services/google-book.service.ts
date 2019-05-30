@@ -5,7 +5,7 @@ import {Observable, throwError} from 'rxjs';
 import {map, catchError} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Book } from '../models/book.model';
-import { GoogleResponse } from '../models/googleResponse.model';
+import { GoogleResponse, GoogleVolume } from '../models/googleResponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +21,17 @@ export class GoogleBookService {
 
   searchIsbn(isbn: string): Observable<Book>{
     return this.httpClient.get(this.BASE_URL + '?q='+isbn).pipe(
-      map(this.extractData),
+      map(data => this.extractData(data, isbn)),
       catchError(this.handleError)
       );
   } 
 
-  private extractData(res: Response) {
+  private extractData(res: any, isbn: string) {
     let book = new Book();
     let googleResponse = new GoogleResponse().deserialize(res);
     if(googleResponse.totalItems!=0){
-      let volumeInfo = googleResponse.items[0].volumeInfo;
-
+      let i = this.getResultIndex(googleResponse.items, isbn);
+      let volumeInfo = googleResponse.items[i].volumeInfo;
       book.authors = volumeInfo.authors.join(", ");;
       book.description = volumeInfo.description;
       book.language = volumeInfo.language;
@@ -44,9 +44,27 @@ export class GoogleBookService {
         if(iid.type=='ISBN_13'){
           book.isbn = iid.identifier;
         }
+        if(iid.type=='ISBN_10'){
+          book.isbn = iid.identifier;
+        }
       });
     }
     return book;
+  }
+
+  private getResultIndex(googleBooks:GoogleVolume[], isbn: string){
+    let index = 0;
+    googleBooks.forEach(function(item, i){
+      console.log(item.volumeInfo.title);
+      item.volumeInfo.industryIdentifiers.forEach(function(innerItem){
+        console.log(innerItem.type);
+        if(innerItem.identifier == isbn){
+          console.log("nell'if");
+          index = i;
+        }
+      });
+    });
+    return index;
   }
 
   private handleError(error: HttpErrorResponse) {

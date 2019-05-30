@@ -3,14 +3,16 @@
         <h2>Inserisci un nuovo libro</h2>
     </div>
     <div class="row" *ngIf="showBarcodeReader">
-        <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
+        <div class="row col-md-12">
+            <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
+        </div>
         <app-barcode-reader #barcodeReader (barcode)="onDetected($event)"></app-barcode-reader>
     </div>
 
     <div class="row" *ngIf="showManualInsert">
         <div class="form-inline" >
             <div class="form-group mb-2">
-                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn" (keyup.enter)="searchIsbn()"
+                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn, Titolo, Autore, ..." (keyup.enter)="searchIsbn()"
                     required
                     [(ngModel)]="searchValue" name="searchValue">
             </div>
