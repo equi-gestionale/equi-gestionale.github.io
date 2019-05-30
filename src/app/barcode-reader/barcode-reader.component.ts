@@ -62,7 +62,7 @@ export class BarcodeReaderComponent implements OnInit {
   ngOnInit() {
     this.result = 'nessun risultato';
     this.ref.detectChanges();
-    Quagga.onProcessed((result) => this.onProcessed(result));
+    //Quagga.onProcessed((result) => this.onProcessed(result));
 
     Quagga.onDetected((result) => this.logCode(result));
     console.log('Sono nella onInit');
@@ -103,7 +103,7 @@ export class BarcodeReaderComponent implements OnInit {
 
   private logCode(result) {
     console.log(result.codeResult);
-    this.result = result;
+    this.result = result.codeResult.code;
     let last_code = result.codeResult.code;
     this.last_result.push(last_code);
     if(this.last_result.length > 10 ){
