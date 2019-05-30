@@ -13,52 +13,42 @@ export class BarcodeReaderComponent implements OnInit {
   bcode = '';
   last_result: String[];
 
-  configQuagga = {
-    inputStream: {
-      name: 'Live',
-      type: 'LiveStream',
-      target: '#barcode-scanner',
-      // constraints: {
-      //   width: { min: 640 },
-      //   height: { min: 480 },
-      //   aspectRatio: { min: 1, max: 100 },
-      //   facingMode: 'environment', // or user
-      // },
-      // singleChannel: false // true: only the red color-channel is read
+  configQuagga2 = {
+    inputStream : {
+      name : "Live",
+      type : "LiveStream",
+      target: '#barcode-scanner'  
     },
-    // locator: {
-    //   patchSize: 'medium',
-    //   halfSample: true,
-    //   debug: {
-    //     showCanvas: true,
-    //     showPatches: true,
-    //     showFoundPatches: true,
-    //     showSkeleton: true,
-    //     showLabels: true,
-    //     showPatchLabels: true,
-    //     showRemainingPatchLabels: true,
-    //     boxFromPatches: {
-    //       showTransformed: true,
-    //       showTransformedBox: true,
-    //       showBB: true
-    //     }
-    //   }
-    // },
-    // locate: true,
     numOfWorkers: navigator.hardwareConcurrency,
-    decoder: {
-      readers: [
-        'code_128_reader', 'ean_reader', 'ean_8_reader', 'EAN'
-      ],
-      // debug: {
-      //   drawBoundingBox: true,
-      //   showFrequency: true,
-      //   drawScanline: true,
-      //   showPattern: true
-      // },
-      // multiple: false
+    decoder : {
+      readers : ["code_128_reader","ean_reader","ean_8_reader"],
+      debug: {
+          drawBoundingBox: true,
+          showFrequency: true,
+          drawScanline: true,
+          showPattern: true
+      },
+      multiple: false
+    },
+    locator: {
+      patchSize: 'medium',
+      halfSample: true,
+      debug: {
+        showCanvas: true,
+        showPatches: true,
+        showFoundPatches: true,
+        showSkeleton: true,
+        showLabels: true,
+        showPatchLabels: true,
+        showRemainingPatchLabels: true,
+        boxFromPatches: {
+          showTransformed: true,
+          showTransformedBox: true,
+          showBB: true
+        }
+      }
     }
-  };
+  }
 
   constructor(private ref: ChangeDetectorRef) { }
 
@@ -70,9 +60,9 @@ export class BarcodeReaderComponent implements OnInit {
     Quagga.onDetected((result) => this.logCode(result));
     console.log('Sono nella onInit');
     if(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function'){
-      Quagga.init(this.configQuagga, (err) => {
+      Quagga.init(this.configQuagga2, (err) => {
         if (err) {
-          return console.log(err);
+          //return console.log(err);
         }
         Quagga.start();
         console.log('Barcode: initialization finished. Ready to start');
@@ -81,30 +71,31 @@ export class BarcodeReaderComponent implements OnInit {
   }
 
   private onProcessed(result: any) {
-    // const drawingCtx = Quagga.canvas.ctx.overlay;
-    // const drawingCanvas = Quagga.canvas.dom.overlay;
+     const drawingCtx = Quagga.canvas.ctx.overlay;
+     const drawingCanvas = Quagga.canvas.dom.overlay;
 
-    //  if (result) {
-    //   if (result.boxes) {
-    //     drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width'), 10), parseInt(drawingCanvas.getAttribute('height'), 10));
-    //     result.boxes.filter(function (box) {
-    //       return box !== result.box;
-    //     }).forEach(function (box) {
-    //       Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'green', lineWidth: 2 });
-    //     });
-    //   }
+      if (result) {
+        if (result.boxes) {
+         drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width'), 10), parseInt(drawingCanvas.getAttribute('height'), 10));
+         result.boxes.filter(function (box) {
+           return box !== result.box;
+         }).forEach(function (box) {
+           Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'green', lineWidth: 2 });
+         });
+       }
 
-    //   if (result.box) {
-    //     Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: '#00F', lineWidth: 2 });
-    //   }
+       if (result.box) {
+         Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: '#00F', lineWidth: 2 });
+       }
 
-    //   if (result.codeResult && result.codeResult.code) {
-    //     Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
-    //   }
-    // } 
+       if (result.codeResult && result.codeResult.code) {
+         Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+       }
+     } 
   }
 
   private logCode(result) {
+    console.log(result.codeResult);
     let last_code = result.codeResult.code;
     this.last_result.push(last_code);
     if(this.last_result.length > 10 ){
