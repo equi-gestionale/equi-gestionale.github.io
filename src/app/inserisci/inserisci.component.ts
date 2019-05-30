@@ -48,9 +48,6 @@ export class InserisciComponent implements OnInit {
       book => {
         this.book = book;
         console.log(this.book);
-        if(this.book.isbn!=this.barcode){
-          this.book.isbn = this.barcode;
-        }
         this.showBookDetail = true;
         this.showManualInsert = false;
         this.showBarcodeReader = false;

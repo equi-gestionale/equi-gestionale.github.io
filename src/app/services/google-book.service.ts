@@ -40,6 +40,7 @@ export class GoogleBookService {
       book.publishedDate = new Date(volumeInfo.publishedDate);
       book.title = volumeInfo.title;
       book.subtitle = volumeInfo.subtitle;
+      book.isbn = '';
       volumeInfo.industryIdentifiers.forEach(function(iid){
         if(iid.type=='ISBN_13'){
           book.isbn = iid.identifier;
