@@ -1,4 +1,7 @@
 
+<div class="row" *ngIf="book.thumbnail">
+  <img src="{{book.thumbnail}}" class="img-fluid img-thumbnail" alt="Cover"> 
+</div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text">Titolo</span>
@@ -17,17 +20,24 @@
       </div>
       <input type="text" class="form-control"  [(ngModel)]="book.authors" [(readonly)]="readonly">
   </div>
-  <div class="input-group mb-3" *ngIf="book.publisher">
+  <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">Editore</span>
     </div>
     <input type="text" class="form-control"  [(ngModel)]="book.publisher" [(readonly)]="readonly">
   </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Genere</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="book.category" [(readonly)]="readonly">
+  </div>
   <div class="input-group mb-3"  *ngIf="book.publishedDate">
     <div class="input-group-prepend">
       <span class="input-group-text">Data di pubblicazione</span>
     </div>
-    <input type="text" class="form-control" [(ngModel)]="book.publishedDate" [(readonly)]="readonly">
+    <input type="text" class="form-control" [ngModel]="book.publishedDate | date : 'd MMMM yyyy'"
+      (ngModelChange)="book.publishedDate=$event" [(readonly)]="readonly">
   </div>
   <div class="input-group mb-3"  *ngIf="book.pageCount">
     <div class="input-group-prepend">

@@ -4,6 +4,9 @@
     </div>
     <div *ngIf="isOpen == true">
       <div class="card-body">
+        <div *ngIf="book.thumbnail">
+          <img  src="{{book.thumbnail}}" class="img-fluid img-thumbnail" alt="Cover"> 
+        </div>
         <div>
           Isbn: {{book.isbn}} <br>
         </div>
@@ -14,7 +17,7 @@
           Editore: {{book.publisher}}<br>
         </div>
         <div *ngIf="book.publishedDate">
-          Data di pubblicazione {{book.publishedDate}}<br>
+          Data di pubblicazione: {{book.publishedDate | date : "d MMMM yyyy" }}<br>
         </div>  
         <div  *ngIf="book.pageCount">
           Numero di pagine: {{book.pageCount}}<br>
@@ -28,13 +31,13 @@
         <div *ngIf="book.libraryMetadata.registrationDates">
           Date di registrazione:
           <div *ngFor="let regDate of book.libraryMetadata.registrationDates">
-            {{regDate}} <br>
+            {{regDate | date : "d MMMM yyyy hh:m"}} <br>
           </div>
         </div>
         <div *ngIf="book.libraryMetadata.deliveryDates">
           Date di consegna:
           <div *ngFor="let delDate of book.libraryMetadata.deliveryDates">
-            {{delDate}} <br>
+            {{delDate | date : "d MMMM yyyy hh:m"}} <br>
           </div>
         </div>
       </div>

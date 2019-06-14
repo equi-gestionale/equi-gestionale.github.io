@@ -46,6 +46,7 @@ export class VolumeInfo{
       }
 }
 
+
 export class ImageLinks{
     smallThumbnail:string;
     thumbnail:string;

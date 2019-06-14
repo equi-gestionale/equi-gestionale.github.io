@@ -40,6 +40,11 @@ export class GoogleBookService {
       book.publishedDate = new Date(volumeInfo.publishedDate);
       book.title = volumeInfo.title;
       book.subtitle = volumeInfo.subtitle;
+      if(volumeInfo.imageLinks.smallThumbnail!=null && volumeInfo.imageLinks.smallThumbnail!=''){
+        book.thumbnail = volumeInfo.imageLinks.smallThumbnail;
+      }else{
+        book.thumbnail = volumeInfo.imageLinks.thumbnail;
+      }
       book.isbn = '';
       volumeInfo.industryIdentifiers.forEach(function(iid){
         if(iid.type=='ISBN_13'){

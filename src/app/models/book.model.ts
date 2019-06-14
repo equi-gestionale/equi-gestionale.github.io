@@ -10,6 +10,8 @@ export class Book {
     description: string;
     pageCount: number;
     language: string;
+    category: string;
+    thumbnail: string;
     libraryMetadata: LibraryMetadata;
   }
 
