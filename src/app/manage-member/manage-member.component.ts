@@ -9,16 +9,16 @@ import { Member } from '../models/member.model';
 })
 export class ManageMemberComponent implements OnInit {
 
-  private searchedValue: string;
-  private showMemberDetail: boolean;
-  private showErrorAlert: boolean;
-  private members: Member[];
-  private page;
-  private previousPage;
-  private pageSize;
-  private totalMembers;
-  private totalPages;
-  private hideResults;
+  searchedValue: string;
+  showMemberDetail: boolean;
+  showErrorAlert: boolean;
+  members: Member[];
+  page;
+  previousPage;
+  pageSize;
+  totalMembers;
+  totalPages;
+  hideResults;
 
   constructor(private membersService: MembersService) { }
 

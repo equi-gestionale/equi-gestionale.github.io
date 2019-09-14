@@ -17,10 +17,10 @@ import { NgbDateCustomParserFormatter } from '../dateCustoFormatter';
 export class InsertMemberComponent implements OnInit {
 
   member: Member;
-  private showSuccessAlert = false;
-  private showErrorAlert = false;
-  private showAlerts: boolean;
-  private showSaveButton = true;
+  showSuccessAlert = false;
+  showErrorAlert = false;
+  showAlerts: boolean;
+  showSaveButton = true;
 
   constructor(private calendar: NgbCalendar, private membersService: MembersService) {}
 

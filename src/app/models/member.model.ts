@@ -29,6 +29,7 @@ export class Member {
     profession: string;
     hobby: string;
     website: string;
+    qualification: string;
   }
 
   export class Membership{
