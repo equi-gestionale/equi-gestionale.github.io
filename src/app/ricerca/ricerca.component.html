@@ -3,13 +3,41 @@
     <h2>Ricerca nel catalogo degli Equilibristi</h2>
   </div>
   <div class="row">
-    <div class="form-inline" >
-        <div class="form-group mb-2">
-            <input type="text" class="form-control" id="inputQuery" placeholder="Titolo, Autore, Isbn, ..." (keyup.enter)=search()
-                required
-                [(ngModel)]="searchValue" name="searchValue">
+    <div class="col-md-12">
+        <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="Titolo, Autore, Isbn, ..." (keyup.enter)=search()
+              required
+              [(ngModel)]="searchValue" name="searchValue"/>
+            <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <div class="dropdown dropdown-lg">
+                        <button type="button" class="btn btn-default dropdown-toggle" (click)="isAdvancedOpen = !isAdvancedOpen" [attr.aria-expanded]="isAdvancedOpen" aria-controls="advancedSearchMenu"><span class="caret"></span></button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu" id="advancedSearchMenu" [ngbCollapse]="!isAdvancedOpen">
+                            <form class="form-horizontal" role="form">
+                              <div class="form-group">
+                                <label for="contain">Autore</label>
+                                <input class="form-control" type="text"  placeholder="Autore" (keyup.enter)=advancedSearch() [(ngModel)]="searchAuthor" name="searchAuthor"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="contain">Titolo</label>
+                                <input class="form-control" type="text" placeholder="Titolo" (keyup.enter)=advancedSearch() [(ngModel)]="searchTitle" name="searchTitle"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="contain">Editore</label>
+                                <input class="form-control" type="text" placeholder="Editore" (keyup.enter)=advancedSearch() [(ngModel)]="searchPublisher" name="searchPublisher"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="contain">Genere</label>
+                                <input class="form-control" type="text" placeholder="Genere" (keyup.enter)=advancedSearch() [(ngModel)]="searchCategory" name="searchCategory"/>
+                              </div>
+                              <button type="submit" class="btn btn-primary mx-sm-3 mb-2" (click)=advancedSearch()><span class="glyphicon glyphicon-search" aria-hidden="true">Cerca</span></button>
+                            </form>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)=search()><span class="glyphicon glyphicon-search" aria-hidden="true">Cerca</span></button>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary mx-sm-3 mb-2" (click)=search() >Cerca</button>
     </div>
   </div>
   <div *ngIf="!hideResults">
@@ -17,7 +45,9 @@
       <h3>Ho trovato questi libri:</h3>
     </div>
     <div class="row" *ngFor="let book of books" >
+      <div class="col-md-12">
         <app-book-accordion [book]="book"></app-book-accordion>
+      </div>
     </div>
     <div class="row" *ngIf="totalPages>1">
       <ngb-pagination [collectionSize]="totalBooks" [pageSize]="pageSize" 

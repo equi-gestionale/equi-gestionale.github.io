@@ -7,6 +7,7 @@ import { InserisciComponent } from './inserisci/inserisci.component';
 import { ScaricaComponent } from './scarica/scarica.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
+import { InsertMemberComponent } from './insert-member/insert-member.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'ricerca',
     component: RicercaComponent
+  },
+  {
+    path: 'inserisci-associato',
+    component: InsertMemberComponent
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

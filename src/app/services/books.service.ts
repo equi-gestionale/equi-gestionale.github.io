@@ -43,7 +43,7 @@ export class BooksService {
   }
 
   search(query: string, page:number, size:number): Observable<BooksPage>{
-    return this.httpClient.get<BooksPage>(this.BASE_URL+"?q="+query+"?page="+page+"&size="+size, httpOptions)
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?q="+query+"&page="+page+"&size="+size, httpOptions)
     .pipe(
       catchError(this.handleError)
     );

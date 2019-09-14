@@ -16,8 +16,9 @@ import { BarcodeReaderComponent } from './barcode-reader/barcode-reader.componen
 import { ScaricaComponent } from './scarica/scarica.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { BookAccordionComponent } from './book-accordion/book-accordion.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCollapseModule, NgbDateAdapter, NgbDateStruct, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { RicercaComponent } from './ricerca/ricerca.component';
+import { InsertMemberComponent } from './insert-member/insert-member.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RicercaComponent } from './ricerca/ricerca.component';
     ScaricaComponent,
     CatalogoComponent,
     BookAccordionComponent,
-    RicercaComponent
+    RicercaComponent,
+    InsertMemberComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +41,13 @@ import { RicercaComponent } from './ricerca/ricerca.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgbCollapseModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
   ],
   bootstrap: [AppComponent]
 })

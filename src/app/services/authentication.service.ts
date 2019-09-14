@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { User } from '../user';
 import { environment } from '../../environments/environment';
@@ -37,6 +37,7 @@ export class AuthenticationService {
             })
           );
   }
+
 
   logout() {
       // remove user from local storage to log user out

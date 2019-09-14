@@ -11,6 +11,10 @@ export class RicercaComponent implements OnInit {
 
   searchValue: string;
   searchedValue: string;
+  searchAuthor: string;
+  searchTitle: string;
+  searchPublisher: string;
+  searchCategory: string;
   books: Book[];
   totalBooks: number;
   totalPages: number;
@@ -20,17 +24,36 @@ export class RicercaComponent implements OnInit {
   isEmpty: boolean;
   hideResults: boolean;
   showErrorAlert: boolean;
+  isAdvancedOpen: boolean;
 
   constructor(private booksService: BooksService) {}
 
   ngOnInit() {
+    this.isAdvancedOpen=false
     this.hideResults=true;
     this.showErrorAlert = false;
+    this.searchedValue="";
   }
 
   search(){
     console.log(this.searchValue);
     this.searchedValue = this.searchValue;
+    this.page = 1;
+    this.previousPage = this.page;
+    this.pageSize=10;
+    this.showErrorAlert = false;
+    this.load();
+  }
+
+  advancedSearch(){
+    if(this.searchValue){this.searchedValue=this.searchValue;}
+    if(this.searchAuthor){ this.searchedValue+=" authors:"+this.searchAuthor;}
+    if(this.searchTitle){ this.searchedValue+=" title:"+this.searchTitle;}
+    if(this.searchPublisher){ this.searchedValue+=" publisher:"+this.searchPublisher;}
+    if(this.searchCategory){ this.searchedValue+=" category:"+this.searchCategory;} 
+    this.searchedValue = this.searchedValue.trim();
+    this.searchValue = this.searchedValue;
+    this.isAdvancedOpen = false;
     this.page = 1;
     this.previousPage = this.page;
     this.pageSize=10;
@@ -46,6 +69,7 @@ export class RicercaComponent implements OnInit {
   }
 
   load(){
+    console.log(this.searchedValue);
     this.booksService.search(this.searchedValue, this.previousPage-1, this.pageSize).subscribe(
       booksPage => {
         console.log(booksPage);
