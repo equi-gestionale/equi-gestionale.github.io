@@ -8,6 +8,7 @@ import { ScaricaComponent } from './scarica/scarica.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { InsertMemberComponent } from './insert-member/insert-member.component';
+import { ManageMemberComponent } from './manage-member/manage-member.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'inserisci-associato',
     component: InsertMemberComponent
+  },
+  {
+    path: 'gestisci-associato',
+    component: ManageMemberComponent
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

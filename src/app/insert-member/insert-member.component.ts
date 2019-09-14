@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Member, Address, Contacts, AddInfo, Membership } from '../models/member.model';
-import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MembersService } from '../services/members.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { customMemberValidator } from '../member.directive';
+import { NgbDateCustomParserFormatter } from '../dateCustoFormatter';
 
 @Component({
   selector: 'app-insert-member',
   templateUrl: './insert-member.component.html',
-  styleUrls: ['./insert-member.component.css']
+  styleUrls: ['./insert-member.component.css'],
+  providers: [
+    {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}
+   ]
 })
 export class InsertMemberComponent implements OnInit {
 
@@ -14,6 +20,7 @@ export class InsertMemberComponent implements OnInit {
   private showSuccessAlert = false;
   private showErrorAlert = false;
   private showAlerts: boolean;
+  private showSaveButton = true;
 
   constructor(private calendar: NgbCalendar, private membersService: MembersService) {}
 
@@ -33,21 +40,38 @@ export class InsertMemberComponent implements OnInit {
     this.showSuccessAlert = false;
     this.showErrorAlert = false;
     this.showAlerts = false;
+    this.showSaveButton = true;
+
+    const memberForm = new FormGroup({
+      'name': new FormControl(),'surname': new FormControl(),'birthdate': new FormControl(),
+      'birthplace': new FormControl(),'city': new FormControl(),'state': new FormControl(),
+      'street': new FormControl(),'cap': new FormControl(),'cell': new FormControl(),
+      'phone': new FormControl(),'email': new FormControl(),'qualification': new FormControl(),
+      'profession': new FormControl(),'hobby': new FormControl(),'website': new FormControl(),
+      'note': new FormControl(),'standard': new FormControl(), 'schoolclass': new FormControl(),
+      'amount': new FormControl(),'className': new FormControl(),'privacy': new FormControl(),
+      'newsletterEnabled': new FormControl(),'date': new FormControl()},{ validators: customMemberValidator });
   }
 
   save(){
     this.showAlerts = false;
+    if(!this.member.membership.standard){
+      this.member.membership.memberColor=null;
+    }
     console.log(this.member);
     this.membersService.insertMember(this.member).subscribe(
       member => {
         console.log(this.member);
         this.showAlerts = true;
         this.showSuccessAlert = true;
+        this.showErrorAlert = false;
+        this.showSaveButton = false;
         this.member = member;
       },
       error => {
         console.log(error);
         this.showAlerts = true;
+        this.showSuccessAlert = false;
         this.showErrorAlert = true;
       }
     );

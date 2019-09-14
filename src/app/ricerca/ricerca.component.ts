@@ -35,15 +35,6 @@ export class RicercaComponent implements OnInit {
     this.searchedValue="";
   }
 
-  search(){
-    console.log(this.searchValue);
-    this.searchedValue = this.searchValue;
-    this.page = 1;
-    this.previousPage = this.page;
-    this.pageSize=10;
-    this.showErrorAlert = false;
-    this.load();
-  }
 
   advancedSearch(){
     if(this.searchValue){this.searchedValue=this.searchValue;}
@@ -54,6 +45,16 @@ export class RicercaComponent implements OnInit {
     this.searchedValue = this.searchedValue.trim();
     this.searchValue = this.searchedValue;
     this.isAdvancedOpen = false;
+    this.page = 1;
+    this.previousPage = this.page;
+    this.pageSize=10;
+    this.showErrorAlert = false;
+    this.load();
+  }
+
+  search(){
+    console.log(this.searchValue);
+    this.searchedValue = this.searchValue;
     this.page = 1;
     this.previousPage = this.page;
     this.pageSize=10;

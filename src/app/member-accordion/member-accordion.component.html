@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-header" (click)="isOpen = !isOpen">
+      {{member.surname}} {{member.name}} nato il {{member.birthdate | date : "d MMMM yyyy" }}
+    </div>
+    <div *ngIf="isOpen == true">
+      <div class="card-body">
+        Da decidere che poter modificare/vedere
+      </div> 
+    </div>
+</div>

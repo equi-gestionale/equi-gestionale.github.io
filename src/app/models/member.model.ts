@@ -32,14 +32,14 @@ export class Member {
   }
 
   export class Membership{
-    isStandard: boolean;
-    isSchoolClass:boolean;
+    standard: boolean;
+    schoolclass:boolean;
     className: string;
     amount:number;
     date:Date;
-    memberType:string;
-    isPrivacy:boolean;
-    isNewsletterEnabled:boolean;
+    privacy:boolean;
+    newsletterEnabled:boolean;
+    memberColor: string;
   }
 
   export class MembersPage{

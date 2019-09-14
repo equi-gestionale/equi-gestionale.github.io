@@ -19,6 +19,9 @@ import { BookAccordionComponent } from './book-accordion/book-accordion.componen
 import { NgbModule, NgbCollapseModule, NgbDateAdapter, NgbDateStruct, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { InsertMemberComponent } from './insert-member/insert-member.component';
+import { MemberDirective } from './member.directive';
+import { ManageMemberComponent } from './manage-member/manage-member.component';
+import { MemberAccordionComponent } from './member-accordion/member-accordion.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { InsertMemberComponent } from './insert-member/insert-member.component';
     CatalogoComponent,
     BookAccordionComponent,
     RicercaComponent,
-    InsertMemberComponent
+    InsertMemberComponent,
+    MemberDirective,
+    ManageMemberComponent,
+    MemberAccordionComponent
   ],
   imports: [
     BrowserModule,
