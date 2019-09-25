@@ -37,7 +37,7 @@ export class RicercaComponent implements OnInit {
 
 
   advancedSearch(){
-    if(this.searchValue){this.searchedValue=this.searchValue;}
+    if(this.searchValue){this.searchedValue=""}
     if(this.searchAuthor){ this.searchedValue+=" authors:"+this.searchAuthor;}
     if(this.searchTitle){ this.searchedValue+=" title:"+this.searchTitle;}
     if(this.searchPublisher){ this.searchedValue+=" publisher:"+this.searchPublisher;}
