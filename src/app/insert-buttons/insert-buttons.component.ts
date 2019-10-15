@@ -12,10 +12,12 @@ export class InsertButtonsComponent implements OnInit {
   @Input() book: Book;
   @Input() type: string;
   @Input() showAlerts: boolean;
+  @Input() selectNotEmpty: boolean;
   private showSuccessAlert = false;
   private showErrorAlert = false;
   showSaveButton = false;
   showDiscardButton = false;
+  
 
   constructor(private booksService: BooksService) {}
 

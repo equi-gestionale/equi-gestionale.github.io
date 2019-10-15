@@ -1,7 +1,8 @@
 <div class="row">
-  <button type="button" class="btn btn-success mb-2" (click)="save()" *ngIf="showSaveButton">Salva</button>
+  <button type="button" class="btn btn-success mb-2" (click)="save()" *ngIf="showSaveButton" [disabled]="!selectNotEmpty">Salva</button>
   <button type="button" class="btn btn-danger mb-2" (click)="discard()" *ngIf="showDiscardButton"> Scarica</button>
 </div>
+
 
 <div class="row" *ngIf="showAlerts">
   <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">

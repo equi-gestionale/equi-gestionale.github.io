@@ -28,10 +28,18 @@
   </div>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text">Genere</span>
+      <label class="input-group-text" for="inputGenreSelect">Genere</label>
     </div>
-    <input type="text" class="form-control"  [(ngModel)]="book.category" [(readonly)]="readonly">
+    <select class="custom-select" id="inputGenreSelect" [(ngModel)]="book.category" 
+            [(disabled)]="readonly" (change)="changeSelect()">
+      <option *ngFor="let genre of genres" [value]="genre.genre">{{genre.genre}}</option>
+    </select>
   </div>
+  <div *ngIf="!book.category">
+      <div class="alert alert-danger mb-3" role="alert">
+        Inserire il genere
+      </div>
+    </div>
   <div class="input-group mb-3"  *ngIf="book.publishedDate">
     <div class="input-group-prepend">
       <span class="input-group-text">Data di pubblicazione</span>

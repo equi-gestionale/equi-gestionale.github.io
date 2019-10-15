@@ -31,5 +31,9 @@ export class Book {
     numberOfElements:number;
     first:boolean;
     empty:boolean;
+  }
 
+  export class Genre{
+    id: string;
+    genre: string;
   }

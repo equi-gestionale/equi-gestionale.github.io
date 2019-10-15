@@ -12,6 +12,7 @@ export class InserisciComponent implements OnInit {
   showManualInsert: boolean;
   showBarcodeReader: boolean;
   showBookDetail: boolean;
+  selectNotEmpty: boolean;
   searchValue = '';
   barcode = '';
   book: Book;

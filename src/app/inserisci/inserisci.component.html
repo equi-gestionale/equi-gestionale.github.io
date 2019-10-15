@@ -21,14 +21,14 @@
     </div>
 
     <div class="row" *ngIf="showBookDetail">
-        <app-book-detail [book]="book" [readonly]=false></app-book-detail>
+        <app-book-detail [book]="book" [readonly]=false (selectEvent)="selectNotEmpty=$event"></app-book-detail>
     </div>   
     <br>
     <div class="row" *ngIf="showBookDetail">
         <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
     </div>
     <div *ngIf="showBookDetail">
-        <app-insert-buttons [book]="book" [type]="'insert'" [showAlerts]="false"></app-insert-buttons>
+        <app-insert-buttons [book]="book" [type]="'insert'" [showAlerts]="false" [selectNotEmpty]="selectNotEmpty"></app-insert-buttons>
     </div>
 
 </div>
