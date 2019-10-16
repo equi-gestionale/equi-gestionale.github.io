@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../services/books.service';
-import { Book } from '../models/book.model';
+import { Book, Genre } from '../models/book.model';
+import { GenreService } from '../services/genre.service';
 
 @Component({
   selector: 'app-ricerca',
@@ -25,14 +26,24 @@ export class RicercaComponent implements OnInit {
   hideResults: boolean;
   showErrorAlert: boolean;
   isAdvancedOpen: boolean;
+  genres: Genre[];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private genreService: GenreService) {}
 
   ngOnInit() {
     this.isAdvancedOpen=false
     this.hideResults=true;
     this.showErrorAlert = false;
     this.searchedValue="";
+    this.genreService.getGenres().subscribe(
+      res => {
+        console.log(res);
+        this.genres = res;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 

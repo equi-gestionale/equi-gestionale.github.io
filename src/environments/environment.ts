@@ -6,9 +6,9 @@ import { appInitializerFactory } from '@angular/platform-browser/src/browser/ser
 
 export const environment = {
   production: false,
-  apiHost: '192.168.1.179:4200',
+  apiHost: 'localhost:4200',
   apiProtocol: 'http://',
-  apiEquilibristiWs: 'http://192.168.1.179:3000'
+  apiEquilibristiWs: 'http://localhost:3000'
 };
 
 /*

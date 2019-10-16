@@ -27,7 +27,8 @@ export class BookDetailComponent implements OnInit {
       error => {
         console.log(error);
       }
-    )
+    );
+    this.selectEvent.emit(false);
   }
 
   changeSelect(){
