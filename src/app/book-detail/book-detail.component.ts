@@ -14,7 +14,7 @@ export class BookDetailComponent implements OnInit {
   @Input() readonly: boolean;
   genres: Genre[];
   @Output() selectEvent:EventEmitter<boolean> = new EventEmitter();
-  private tmpThumbnail;
+  tmpThumbnail;
 
   constructor(private genreService: GenreService) { 
   }
