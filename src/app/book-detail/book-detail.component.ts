@@ -14,6 +14,7 @@ export class BookDetailComponent implements OnInit {
   @Input() readonly: boolean;
   genres: Genre[];
   @Output() selectEvent:EventEmitter<boolean> = new EventEmitter();
+  private tmpThumbnail;
 
   constructor(private genreService: GenreService) { 
   }
@@ -29,6 +30,7 @@ export class BookDetailComponent implements OnInit {
       }
     );
     this.selectEvent.emit(false);
+    this.tmpThumbnail=null;
   }
 
   changeSelect(){
@@ -40,7 +42,17 @@ export class BookDetailComponent implements OnInit {
       this.selectEvent.emit(false);
       console.log('changeSelect false');
     }
-}
+  }
+
+  removeThumbnail(){
+    if(this.tmpThumbnail==null && this.book.thumbnail!=null ){
+      this.tmpThumbnail=this.book.thumbnail;
+      this.book.thumbnail=null;
+    }else if(this.tmpThumbnail!=null && this.book.thumbnail==null){
+      this.book.thumbnail=this.tmpThumbnail;
+      this.tmpThumbnail=null;
+    }
+  }
 
 
 }

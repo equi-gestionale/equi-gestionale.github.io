@@ -1,6 +1,12 @@
 
-<div class="row" *ngIf="book.thumbnail">
-  <img src="{{book.thumbnail}}" class="img-fluid img-thumbnail" alt="Cover"> 
+<div class="mb-3 row thumbnail" *ngIf="book.thumbnail || tmpThumbnail">
+  <div *ngIf="book.thumbnail">
+    <img src="{{book.thumbnail}}" class="img-fluid img-thumbnail" alt="Cover"> 
+  </div>
+  <button class="btn btn-outline-secondary align-self-center" (click)="removeThumbnail()" type="button">
+    <div *ngIf="book.thumbnail"><i class="fas fa-trash-alt" ></i></div>
+    <div *ngIf="tmpThumbnail"><i class="far fa-image" ></i></div>
+  </button>
 </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -14,7 +20,7 @@
     </div>
     <input type="text" class="form-control"  [(ngModel)]="book.subtitle" [(readonly)]="readonly">
   </div>
-  <div class="input-group mb-3" *ngIf="book.authors">
+  <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Autori</span>
       </div>
@@ -40,20 +46,20 @@
         Inserire il genere
       </div>
     </div>
-  <div class="input-group mb-3"  *ngIf="book.publishedDate">
+  <div class="input-group mb-3" >
     <div class="input-group-prepend">
       <span class="input-group-text">Data di pubblicazione</span>
     </div>
     <input type="text" class="form-control" [ngModel]="book.publishedDate | date : 'd MMMM yyyy'"
       (ngModelChange)="book.publishedDate=$event" [(readonly)]="readonly">
   </div>
-  <div class="input-group mb-3"  *ngIf="book.pageCount">
+  <div class="input-group mb-3"  >
     <div class="input-group-prepend">
       <span class="input-group-text">Numero di Pagine</span>
     </div>
     <input type="text" class="form-control" [(ngModel)]="book.pageCount" [(readonly)]="readonly">
   </div>
-  <div class="input-group mb-3" *ngIf="book.language">
+  <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">Lingua</span>
     </div>
@@ -85,7 +91,7 @@
       <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.numberOfCopy" readonly>
     </div>
   </div>
-  <div class="input-group" *ngIf="book.description">
+  <div class="input-group">
     <div class="input-group-prepend">
       <span class="input-group-text">Descrizione</span>
     </div>

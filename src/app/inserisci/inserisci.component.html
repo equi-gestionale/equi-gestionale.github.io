@@ -4,7 +4,7 @@
     </div>
     <div class="row" *ngIf="showBarcodeReader">
         <div class="row col-md-12">
-            <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
+            <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci Libro manualmente</button>
         </div>
         <app-barcode-reader #barcodeReader (barcode)="onDetected($event)"></app-barcode-reader>
     </div>

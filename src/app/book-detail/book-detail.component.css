@@ -1,3 +1,10 @@
 .alert {
     padding: 6px 12px;
 }
+.thumbnail{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.btn-outline-secondary{
+    margin-left: 15px;
+}

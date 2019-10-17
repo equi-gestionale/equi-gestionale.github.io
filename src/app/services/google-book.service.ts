@@ -40,10 +40,12 @@ export class GoogleBookService {
       book.publishedDate = new Date(volumeInfo.publishedDate);
       book.title = volumeInfo.title;
       book.subtitle = volumeInfo.subtitle;
-      if(volumeInfo.imageLinks.smallThumbnail!=null && volumeInfo.imageLinks.smallThumbnail!=''){
-        book.thumbnail = volumeInfo.imageLinks.smallThumbnail;
-      }else{
-        book.thumbnail = volumeInfo.imageLinks.thumbnail;
+      if(volumeInfo.imageLinks!=null){
+        if(volumeInfo.imageLinks.smallThumbnail!=null && volumeInfo.imageLinks.smallThumbnail!=''){
+          book.thumbnail = volumeInfo.imageLinks.smallThumbnail;
+        }else{
+          book.thumbnail = volumeInfo.imageLinks.thumbnail;
+        }
       }
       book.isbn = '';
       volumeInfo.industryIdentifiers.forEach(function(iid){
@@ -62,13 +64,15 @@ export class GoogleBookService {
     let index = 0;
     googleBooks.forEach(function(item, i){
       console.log(item.volumeInfo.title);
-      item.volumeInfo.industryIdentifiers.forEach(function(innerItem){
-        console.log(innerItem.type);
-        if(innerItem.identifier == isbn){
-          console.log("nell'if");
-          index = i;
-        }
-      });
+      if(item.volumeInfo.industryIdentifiers!=null){
+        item.volumeInfo.industryIdentifiers.forEach(function(innerItem){
+          console.log(innerItem.type);
+          if(innerItem.identifier == isbn){
+            console.log("nell'if");
+            index = i;
+          }
+        });
+      }
     });
     return index;
   }

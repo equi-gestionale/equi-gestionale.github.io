@@ -15,6 +15,7 @@ export class InsertButtonsComponent implements OnInit {
   @Input() selectNotEmpty: boolean;
   private showSuccessAlert = false;
   private showErrorAlert = false;
+  private showValidationErrorAlert = false;
   showSaveButton = false;
   showDiscardButton = false;
   
@@ -24,6 +25,7 @@ export class InsertButtonsComponent implements OnInit {
   ngOnInit() {
     this.showSuccessAlert = false;
     this.showErrorAlert = false;
+    this.showValidationErrorAlert = false;
     console.log(this.type+" on init type")
     if(this.type=="insert"){
       this.showSaveButton = true;
@@ -38,19 +40,29 @@ export class InsertButtonsComponent implements OnInit {
   save(){
     this.showAlerts = false;
     console.log(this.book);
-    this.booksService.insertBook(this.book).subscribe(
-      book => {
-        console.log(this.book);
-        this.showAlerts = true;
-        this.showSuccessAlert = true;
-        this.book = book;
-      },
-      error => {
-        console.log(error);
-        this.showAlerts = true;
-        this.showErrorAlert = true;
-      }
-    );
+    if(this.validateBook(this.book)==true){
+      this.booksService.insertBook(this.book).subscribe(
+        book => {
+          console.log(this.book);
+          this.showAlerts = true;
+          this.showSuccessAlert = true;
+          this.showErrorAlert = false;
+          this.showValidationErrorAlert = false;
+          this.book = book;
+        },
+        error => {
+          console.log(error);
+          this.showAlerts = true;
+          this.showErrorAlert = true;
+          this.showValidationErrorAlert = false;
+        }
+      );
+    }else{
+      this.showAlerts = true;
+      this.showSuccessAlert = false;
+      this.showErrorAlert = false;
+      this.showValidationErrorAlert = true;
+    }
   }
 
   discard(){
@@ -69,6 +81,12 @@ export class InsertButtonsComponent implements OnInit {
         this.showErrorAlert = true;
       }
     );
+  }
+
+  private validateBook(book: Book): boolean{
+    if(!book.title || !book.authors || !book.category)
+      return false;
+    return true;
   }
 
 }
