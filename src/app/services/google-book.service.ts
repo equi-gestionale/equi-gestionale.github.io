@@ -32,14 +32,14 @@ export class GoogleBookService {
     if(googleResponse.totalItems!=0){
       let i = this.getResultIndex(googleResponse.items, isbn);
       let volumeInfo = googleResponse.items[i].volumeInfo;
-      book.authors = volumeInfo.authors.join(", ");;
-      book.description = volumeInfo.description;
-      book.language = volumeInfo.language;
-      book.pageCount = volumeInfo.pageCount;
-      book.publisher = volumeInfo.publisher;
-      book.publishedDate = new Date(volumeInfo.publishedDate);
-      book.title = volumeInfo.title;
-      book.subtitle = volumeInfo.subtitle;
+      if(volumeInfo.authors) book.authors = volumeInfo.authors.join(", ");
+      if(volumeInfo.description) book.description = volumeInfo.description;
+      if(volumeInfo.language) book.language = volumeInfo.language;
+      if(volumeInfo.pageCount) book.pageCount = volumeInfo.pageCount;
+      if(volumeInfo.publisher) book.publisher = volumeInfo.publisher;
+      if(volumeInfo.publishedDate) book.publishedDate = new Date(volumeInfo.publishedDate);
+      if(volumeInfo.title) book.title = volumeInfo.title;
+      if(volumeInfo.subtitle) book.subtitle = volumeInfo.subtitle;
       if(volumeInfo.imageLinks!=null){
         if(volumeInfo.imageLinks.smallThumbnail!=null && volumeInfo.imageLinks.smallThumbnail!=''){
           book.thumbnail = volumeInfo.imageLinks.smallThumbnail;
