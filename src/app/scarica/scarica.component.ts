@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../services/books.service';
 import { Book } from '../models/book.model';
+import { Member, TakenBook } from '../models/member.model';
 
 @Component({
   selector: 'app-scarica',
@@ -15,6 +16,7 @@ export class ScaricaComponent implements OnInit {
   searchValue = '';
   barcode = '';
   book: Book;
+  selectedMember:Member;
   
 
   constructor(private booksService: BooksService) { 
@@ -65,5 +67,17 @@ export class ScaricaComponent implements OnInit {
     this.showBarcodeReader = true;
   }
 
+  manageSelectedMember(member){
+    this.selectedMember = member;
+    if(this.book!=null){
+      let takenBook = new TakenBook();
+      takenBook.id = this.book.id;
+      takenBook.authors = this.book.authors;
+      takenBook.isbn = this.book.isbn;
+      takenBook.publisher = this.book.publisher;
+      takenBook.title = this.book.title;
+      takenBook.takenDate = new Date();
+    }
+  }
 
 }

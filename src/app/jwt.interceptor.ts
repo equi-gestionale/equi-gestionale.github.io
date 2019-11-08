@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 const externalHosts = {
     GOOGLE: "googleapis.com"
@@ -8,10 +10,11 @@ const externalHosts = {
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor() { }
+    constructor(private router: Router) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
+        console.log('sono nel interceptor');
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token && request.url.indexOf(externalHosts.GOOGLE)==-1) {
             request = request.clone({
@@ -20,6 +23,18 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
-        return next.handle(request);
+        return next.handle(request).pipe(
+            catchError(err => this.handleAuthError(err))
+            );
     }
+
+    private handleAuthError(err: HttpErrorResponse): Observable<any> {
+        console.log('sono nel handle auth error');
+        if (err.status === 401 || err.status === 403) {
+            localStorage.removeItem('currentUser');
+            this.router.navigateByUrl(`/login`);
+        }
+        return Observable.throw(err.message);
+    }
+
 }

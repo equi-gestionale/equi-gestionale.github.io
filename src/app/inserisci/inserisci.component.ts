@@ -19,14 +19,14 @@ export class InserisciComponent implements OnInit {
   
 
   constructor(private googleApi: GoogleBookService) { 
-    this.showBarcodeReader = true;
+    this.showBarcodeReader = false;
     this.showBookDetail = false;
     this.showManualInsert = false;
   }
 
   ngOnInit() {
     this.barcode = '';
-    this.showBarcodeReader = true;
+    this.showBarcodeReader = false;
     this.showBookDetail = false;
     this.showManualInsert = false;
   }
@@ -59,7 +59,7 @@ export class InserisciComponent implements OnInit {
   back(){
     this.showBookDetail = false;
     this.showManualInsert = false;
-    this.showBarcodeReader = true;
+    this.showBarcodeReader = false;
   }
 
 

@@ -1,5 +1,8 @@
 <div class="container">
     <h2>Scarica un libro</h2>
+    <div class="row" *ngIf="showBookDetail">
+        <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
+    </div>
     <div class="row" *ngIf="showBarcodeReader">
             <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
         <app-barcode-reader #barcodeReader (barcode)="onDetected($event)"></app-barcode-reader>
@@ -21,10 +24,13 @@
     </div>   
     <br>
     <div class="row" *ngIf="showBookDetail">
-        <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
-    </div>
-    <div class="row" *ngIf="showBookDetail">
-        <app-insert-buttons [book]="book" [type]="'discard'"></app-insert-buttons>
+        <app-manage-member [editMode]="false" (selectedMember)="selectedMember=$event"></app-manage-member>
+    </div>    
+    <div *ngIf="showBookDetail && selectedMember!=null">
+        <div class="row">
+            <h2>Libro Consegnato a: {{selectedMember.name}} {{selectedMember.surname}}</h2>
+        </div>
+        <app-insert-buttons [book]="book" [type]="'discard'" [selectedMember]="selectedMember"></app-insert-buttons>
     </div>
 
 </div>

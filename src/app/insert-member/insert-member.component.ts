@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Member, Address, Contacts, AddInfo, Membership } from '../models/member.model';
+import { Member, Address, Contacts, AddInfo, Membership, Benefit } from '../models/member.model';
 import { NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MembersService } from '../services/members.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { customMemberValidator } from '../member.directive';
 import { NgbDateCustomParserFormatter } from '../dateCustoFormatter';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-insert-member',
@@ -21,22 +22,39 @@ export class InsertMemberComponent implements OnInit {
   showErrorAlert = false;
   showAlerts: boolean;
   showSaveButton = true;
+  editUserMode = false;
+  benefits = ['','un libro','due libri','tre libri'];
 
-  constructor(private calendar: NgbCalendar, private membersService: MembersService) {}
+  constructor(
+    private calendar: NgbCalendar, 
+    private membersService: MembersService,
+    public activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    let address = new Address;
-    let contacts = new Contacts;
-    let addInfo = new AddInfo;
-    this.member = new Member;
-    let membership = new Membership;
-    this.member.address = address;
-    this.member.contacts = contacts;
-    this.member.addInfo = addInfo;
-    this.member.membership = membership;
-    let today = this.calendar.getToday()
-    this.member.membership.date = new Date(today.year, today.month - 1, today.day);
-
+    if (window.history.state.member) {
+      this.member = window.history.state.member;
+      this.member.birthdate = new Date(window.history.state.member.birthdate);
+      this.member.membership.registrationDate = new Date(window.history.state.member.membership.registrationDate );
+      this.editUserMode = true;
+      console.log(this.member);
+    } else {
+      this.editUserMode = false;
+      let address = new Address;
+      let contacts = new Contacts;
+      let addInfo = new AddInfo;
+      this.member = new Member;
+      let membership = new Membership;
+      let benefit = new Benefit;
+      this.member.address = address;
+      this.member.contacts = contacts;
+      this.member.addInfo = addInfo;
+      this.member.membership = membership;
+      let today = this.calendar.getToday()
+      this.member.membership.registrationDate = new Date(today.year, today.month - 1, today.day);
+      this.member.benefit = benefit;
+      this.member.benefit.benefitUsed = false;
+    }
+    
     this.showSuccessAlert = false;
     this.showErrorAlert = false;
     this.showAlerts = false;
@@ -67,6 +85,8 @@ export class InsertMemberComponent implements OnInit {
         this.showErrorAlert = false;
         this.showSaveButton = false;
         this.member = member;
+        this.member.birthdate = new Date(member.birthdate);
+        this.member.membership.registrationDate = new Date(member.membership.registrationDate );
       },
       error => {
         console.log(error);
@@ -75,6 +95,10 @@ export class InsertMemberComponent implements OnInit {
         this.showErrorAlert = true;
       }
     );
+  }
+
+  compareBenefitType(first, second){
+    return first && second && first == second;
   }
 
 }

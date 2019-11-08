@@ -22,6 +22,7 @@ import { InsertMemberComponent } from './insert-member/insert-member.component';
 import { MemberDirective } from './member.directive';
 import { ManageMemberComponent } from './manage-member/manage-member.component';
 import { MemberAccordionComponent } from './member-accordion/member-accordion.component';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,12 @@ import { MemberAccordionComponent } from './member-accordion/member-accordion.co
     NgbCollapseModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, 
+      useFactory: function(router: Router) {
+        return new JwtInterceptor(router);
+      },useClass: JwtInterceptor, multi: true, deps: [Router] },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    {provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}
+    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }
   ],
   bootstrap: [AppComponent]
 })

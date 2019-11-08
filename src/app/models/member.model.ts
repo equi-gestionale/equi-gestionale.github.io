@@ -10,6 +10,22 @@ export class Member {
     addInfo: AddInfo;
     note: string;
     membership : Membership;
+    benefit: Benefit;
+    takenBooks:TakenBook[];
+  }
+
+  export class TakenBook{
+    takenDate: Date;
+    isbn: string;
+    id: string;
+    title: string;
+    authors: string;
+    publisher: string;
+  }
+
+  export class Benefit{
+    benefitType: string;
+    benefitUsed: boolean;
   }
 
   export class Address{
@@ -37,7 +53,7 @@ export class Member {
     schoolclass:boolean;
     className: string;
     amount:number;
-    date:Date;
+    registrationDate:Date;
     privacy:boolean;
     newsletterEnabled:boolean;
     memberColor: string;

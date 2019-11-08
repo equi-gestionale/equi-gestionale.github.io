@@ -35,7 +35,7 @@ export class BooksService {
     );
   }
 
-  deleteIsbn(id: number): Observable<Book>{
+  deleteIsbn(id: string): Observable<Book>{
     return this.httpClient.delete<Book>(this.BASE_URL+"/"+id, httpOptions)
     .pipe(
       catchError(this.handleError)

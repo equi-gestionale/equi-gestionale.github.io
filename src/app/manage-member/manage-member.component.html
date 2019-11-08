@@ -1,8 +1,11 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="editMode">
         <h2>Gestisci un socio</h2>
     </div>
 
+    <div class="row" *ngIf="!editMode">
+        <h3>Cerca associato</h3>
+    </div>
     <div class="row">
         <div class="form-inline" >
             <div class="form-group mb-2">
@@ -15,24 +18,24 @@
     </div>
 
     <div *ngIf="!hideResults">
-        <div class="row" >
-          <h3>Ho trovato questi soci:</h3>
-        </div>
-        <div class="row" *ngFor="let member of members" >
-          <div class="col-md-12">
-            <app-member-accordion [member]="member"></app-member-accordion>
-          </div>
-        </div>
-        <div class="row" *ngIf="totalPages>1">
-          <ngb-pagination [collectionSize]="totalMembers" [pageSize]="pageSize" 
-            [(page)]="page" [maxSize]="5" [rotate]="true" (pageChange)="loadPage($event)">
-          </ngb-pagination>
+      <div class="row" >
+        <h3>Ho trovato questi soci:</h3>
+      </div>
+      <div class="row" *ngFor="let member of members" >
+        <div class="col-md-12">
+          <app-member-accordion [member]="member" [editMode]="editMode" (selectEvent)="selectMember($event)"></app-member-accordion>
         </div>
       </div>
-      <div class="row" *ngIf="showErrorAlert">
-        <div class="alert alert-danger" role="alert" >
-          Qualcosa è andato storto!!
-        </div>
+      <div class="row" *ngIf="totalPages>1">
+        <ngb-pagination [collectionSize]="totalMembers" [pageSize]="pageSize" 
+          [(page)]="page" [maxSize]="5" [rotate]="true" (pageChange)="loadPage($event)">
+        </ngb-pagination>
       </div>
+    </div>
+    <div class="row" *ngIf="showErrorAlert">
+      <div class="alert alert-danger" role="alert" >
+        Qualcosa è andato storto!!
+      </div>
+    </div>
     
-</div>
+  </div>

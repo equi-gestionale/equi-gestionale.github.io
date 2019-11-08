@@ -1,7 +1,8 @@
 
 <div class="container">
   <div class="row">
-      <h2>Inserisci un nuovo associato</h2>
+    <h2 *ngIf="!editUserMode">Inserisci un nuovo associato</h2>
+    <h2 *ngIf="editUserMode">Modifica associato</h2>
   </div>
   <form #memberForm="ngForm" appMember (ngSubmit)="save()">
   <div class="row">  
@@ -183,6 +184,22 @@
           </label>
         </div>
       </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputBenefitSelect">Benefit</label>
+        </div>
+        <select class="custom-select" name="inputBenefitSelect" id="inputBenefitSelect" [(ngModel)]="member.benefit.benefitType" [compareWith]="compareBenefitType">
+          <option *ngFor="let benefit of benefits" [value]="benefit">{{benefit}}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3 form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="benefitUsed" id="benefitUsed" [(ngModel)]="member.benefit.benefitUsed" #benefitUsed="ngModel">
+          <label class="form-check-label" for="benefitUsed">
+              Benefit Utilizzato
+          </label>
+        </div>
+      </div>
 
       <div class="input-group mb-3 form-group">
         <div class="form-check">
@@ -197,7 +214,7 @@
             <span class="input-group-text">Data iscrizione</span>
           </div>
           <input class="form-control" placeholder="dd/mm/yyyy" 
-                ngbDatepicker #d2="ngbDatepicker" [(ngModel)]="member.membership.date" id="date" name="date" #date="ngModel" >
+                ngbDatepicker #d2="ngbDatepicker" [(ngModel)]="member.membership.registrationDate" id="date" name="date" #date="ngModel" >
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
                 <i class="fas fa-calendar-alt"></i>

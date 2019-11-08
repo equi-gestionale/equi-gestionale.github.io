@@ -1,10 +1,18 @@
 <div class="card">
-    <div class="card-header" (click)="isOpen = !isOpen">
+    <div class="card-header" (click)="headerClick()">
       {{member.surname}} {{member.name}} nato il {{member.birthdate | date : "d MMMM yyyy" }}
+      <button class="btn btn-primary mb-2" (click)='select(member)' *ngIf="!editMode">Seleziona</button>
     </div>
     <div *ngIf="isOpen == true">
-      <div class="card-body">
-        Da decidere che poter modificare/vedere
+      <div class="card-body text-secondary">
+        <p> Residente in {{ member.address.city }}, provincia: {{ member.address.state }} </p>
+        <p> Via {{ member.address.street }} </p>
+        <p> Telefono: {{ member.contacts.cell }} </p>
+        <p> Email: {{ member.contacts.email }} </p>
+        <p> Member Color: {{ member.membership.memberColor || "N.d." }} </p>
+        <p> Note: {{ member.note || "Nessun dato da mostrare" }} </p>
+        <p *ngIf="member.membership.className"> Corso: {{ member.membership.className}} </p>
+        <button class="btn btn-info" (click)='edit(member)' *ngIf="editMode">Modifica <i class="fas fa-edit"></i></button>
       </div> 
     </div>
 </div>

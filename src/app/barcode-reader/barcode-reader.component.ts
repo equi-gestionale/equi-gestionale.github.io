@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
 import Quagga from 'quagga';
 import { count } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { count } from 'rxjs/operators';
   templateUrl: './barcode-reader.component.html',
   styleUrls: ['./barcode-reader.component.css']
 })
-export class BarcodeReaderComponent implements OnInit {
+export class BarcodeReaderComponent implements OnInit, OnDestroy {
 
   @Output() barcode = new EventEmitter<string>();
   bcode = '';
@@ -75,6 +75,10 @@ export class BarcodeReaderComponent implements OnInit {
         console.log('Barcode: initialization finished. Ready to start');
       });
     }
+  }
+
+  ngOnDestroy(){
+    this.stop();
   }
 
   private onProcessed(result: any) {

@@ -27,6 +27,13 @@ export class MembersService {
     );
   }
 
+  updateMember(member: Member): Observable<Member>{
+    return this.httpClient.put<Member>(this.BASE_URL+"/"+member.id, member, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   search(query: string, page:number, size:number): Observable<MembersPage>{
     return this.httpClient.get<MembersPage>(this.BASE_URL+"?q="+query+"&page="+page+"&size="+size, httpOptions)
     .pipe(
