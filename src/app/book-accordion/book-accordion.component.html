@@ -43,6 +43,10 @@
             {{delDate | date : "d MMMM yyyy hh:m"}} <br>
           </div>
         </div>
+        <div class="btn-toolbar">
+          <button class="btn btn-info mr-2" (click)='edit(book)'>Modifica <i class="fas fa-edit"></i></button>
+          <button class="btn btn-info" (click)='delete(book)'>Scarica <i class="fas fa-file-export"></i></button>
+        </div>
       </div>
     </div>
 </div>

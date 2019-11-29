@@ -48,7 +48,7 @@ import { Router } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,
+    NgbModule.forRoot(),
     NgbCollapseModule
   ],
   providers: [

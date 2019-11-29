@@ -16,6 +16,7 @@ export class InserisciComponent implements OnInit {
   searchValue = '';
   barcode = '';
   book: Book;
+  editBookMode : boolean;
   
 
   constructor(private googleApi: GoogleBookService) { 
@@ -25,10 +26,21 @@ export class InserisciComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.barcode = '';
-    this.showBarcodeReader = false;
-    this.showBookDetail = false;
-    this.showManualInsert = false;
+    if (window.history.state.book) {
+      this.barcode = '';
+      this.showBarcodeReader = false;
+      this.showManualInsert = false;
+      this.showBookDetail = true;
+      this.book = window.history.state.book;
+      this.editBookMode = true;
+      console.log(this.book);
+    } else {
+      this.barcode = '';
+      this.showBarcodeReader = false;
+      this.showBookDetail = false;
+      this.showManualInsert = false;
+      this.editBookMode = false;
+    }
   }
 
   onDetected(bcode: string){

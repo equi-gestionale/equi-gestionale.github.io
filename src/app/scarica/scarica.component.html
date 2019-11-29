@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Scarica un libro</h2>
-    <div class="row" *ngIf="showBookDetail">
+    <div class="row" *ngIf="showBookDetail && !editBookMode">
         <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
     </div>
     <div class="row" *ngIf="showBarcodeReader">

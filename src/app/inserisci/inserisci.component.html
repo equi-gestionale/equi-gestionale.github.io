@@ -1,6 +1,9 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="!editBookMode">
         <h2>Inserisci un nuovo libro</h2>
+    </div>
+    <div class="row" *ngIf="editBookMode">
+        <h2>Modifica libro</h2>
     </div>
     <div class="row" *ngIf="!showBarcodeReader && !showManualInsert && !showBookDetail">
         <div class="row col-md-6">
@@ -30,7 +33,7 @@
         <app-book-detail [book]="book" [readonly]=false (selectEvent)="selectNotEmpty=$event"></app-book-detail>
     </div>   
     <br>
-    <div class="row" *ngIf="showBookDetail || showBarcodeReader || showManualInsert">
+    <div class="row" *ngIf="(showBookDetail || showBarcodeReader || showManualInsert) && !editBookMode">
         <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
     </div>
     <div *ngIf="showBookDetail">

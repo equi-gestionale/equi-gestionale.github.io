@@ -1,11 +1,69 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" *ngIf="currentUser">
+    <a class="navbar-brand" routerLink="/home">
+      Equilibristi App
+    </a>
+  
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+  
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/ricerca" (click)="toggleNavbar()">Ricerca</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/inserisci" (click)="toggleNavbar()">Inserisci</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/scarica" (click)="toggleNavbar()">Scarica</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/inserisci-associato" (click)="toggleNavbar()">Inserisci Associato</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/gestisci-associato" (click)="toggleNavbar()">Gestisci Associato</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" routerLink="/catalogo" (click)="toggleNavbar()">Libreria</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link" (click)="logout(); toggleNavbar()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--
+<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarSupportedContent" (click)="isCollapsed = !isCollapsed"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/ricerca">Ricerca</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/inserisci">Inserisci</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-item nav-link" routerLink="/scarica">Scaricaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+        </li>
+    </ul>
+    <div class="nav-item">
+        <button class="btn btn-outline-secondary" (click)="logout()">Logout</button>
+    </div>
   </div>
-</nav>
+</nav>-->
 <!-- main app container -->
 <div class="jumbotron">
   <div class="container">

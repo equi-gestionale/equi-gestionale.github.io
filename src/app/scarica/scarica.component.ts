@@ -17,6 +17,7 @@ export class ScaricaComponent implements OnInit {
   barcode = '';
   book: Book;
   selectedMember:Member;
+  editBookMode: boolean;
   
 
   constructor(private booksService: BooksService) { 
@@ -26,10 +27,21 @@ export class ScaricaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.barcode = '';
-    this.showBarcodeReader = true;
-    this.showBookDetail = false;
-    this.showManualInsert = false;
+    if (window.history.state.book) {
+      this.barcode = '';
+      this.showBarcodeReader = false;
+      this.showManualInsert = false;
+      this.showBookDetail = true;
+      this.book = window.history.state.book;
+      this.editBookMode = true;
+      console.log(this.book);
+    } else {
+      this.barcode = '';
+      this.showBarcodeReader = true;
+      this.showBookDetail = false;
+      this.showManualInsert = false;
+      this.editBookMode = false;
+    }
   }
 
   onDetected(bcode: string){
