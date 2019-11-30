@@ -42,6 +42,13 @@ export class BooksService {
     );
   }
 
+  deleteIsbnInPosition(id: string, pos: string): Observable<Book>{
+    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id+"?position="+pos, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   search(query: string, page:number, size:number): Observable<BooksPage>{
     return this.httpClient.get<BooksPage>(this.BASE_URL+"?q="+query+"&page="+page+"&size="+size, httpOptions)
     .pipe(

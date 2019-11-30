@@ -22,7 +22,7 @@ export class CatalogoComponent implements OnInit {
   previousDelBooksPage: any;
 
   constructor(private booksService: BooksService) { 
-    this.itemsPerPage = 5;
+    this.itemsPerPage = 10;
     this.insBooks = [];
     this.delBooks = [];
     this.insBookPage = 1;

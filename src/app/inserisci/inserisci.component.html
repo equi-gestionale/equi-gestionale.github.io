@@ -5,6 +5,7 @@
     <div class="row" *ngIf="editBookMode">
         <h2>Modifica libro</h2>
     </div>
+
     <div class="row" *ngIf="!showBarcodeReader && !showManualInsert && !showBookDetail">
         <div class="row col-md-6">
             <button class="btn btn-outline-light mt-auto bg-primary" (click)="showManualInsert=false; showBarcodeReader=true;">Scansiona Isbn</button>
@@ -20,21 +21,22 @@
 
     <div class="row" *ngIf="showManualInsert">
         <div class="form-inline" >
-            <div class="form-group mb-2">
+            <div class="form-group mb-3">
                 <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn, Titolo, Autore, ..." (keyup.enter)="searchIsbn()"
                     required
                     [(ngModel)]="searchValue" name="searchValue">
             </div>
-            <button class="btn btn-primary mx-sm-3 mb-2" (click)=searchIsbn()>Cerca</button>
+            <button class="btn btn-primary mx-sm-3 mb-3" (click)=searchIsbn()>Cerca</button>
         </div>
     </div>
 
     <div class="row" *ngIf="showBookDetail">
-        <app-book-detail [book]="book" [readonly]=false (selectEvent)="selectNotEmpty=$event"></app-book-detail>
+        <app-book-detail [book]="book" [readonly]=false [editMode]="editBookMode" (selectEvent)="selectNotEmpty=$event"></app-book-detail>
     </div>   
-    <br>
+    
     <div class="row" *ngIf="(showBookDetail || showBarcodeReader || showManualInsert) && !editBookMode">
-        <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
+        <br>
+        <button class="btn btn-primary mb-3" (click)=back()>Indietro</button>
     </div>
     <div *ngIf="showBookDetail">
         <app-insert-buttons [book]="book" [type]="'insert'" [showAlerts]="false" [selectNotEmpty]="selectNotEmpty"></app-insert-buttons>

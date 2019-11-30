@@ -19,6 +19,9 @@ export class Book {
     registrationDates:Date[];
     deliveryDates:Date[];
     numberOfCopy:number;
+    positions:string[];
+    currentPosition:string;
+    editMode:boolean;
   }
 
   export class BooksPage{

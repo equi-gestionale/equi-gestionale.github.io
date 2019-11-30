@@ -17,11 +17,10 @@ export class ScaricaComponent implements OnInit {
   barcode = '';
   book: Book;
   selectedMember:Member;
-  editBookMode: boolean;
   
 
   constructor(private booksService: BooksService) { 
-    this.showBarcodeReader = true;
+    this.showBarcodeReader = false;
     this.showBookDetail = false;
     this.showManualInsert = false;
   }
@@ -33,14 +32,13 @@ export class ScaricaComponent implements OnInit {
       this.showManualInsert = false;
       this.showBookDetail = true;
       this.book = window.history.state.book;
-      this.editBookMode = true;
+      this.setDefaultCurrentPosition();
       console.log(this.book);
     } else {
       this.barcode = '';
-      this.showBarcodeReader = true;
+      this.showBarcodeReader = false;
       this.showBookDetail = false;
       this.showManualInsert = false;
-      this.editBookMode = false;
     }
   }
 
@@ -65,6 +63,7 @@ export class ScaricaComponent implements OnInit {
           if(this.book.isbn==''){
             this.book.isbn = this.barcode;
           }
+          this.setDefaultCurrentPosition();
           this.showBookDetail = true;
           this.showManualInsert = false;
           this.showBarcodeReader = false;
@@ -73,10 +72,16 @@ export class ScaricaComponent implements OnInit {
     );
   }
 
+  setDefaultCurrentPosition(){
+    if(this.book.libraryMetadata.positions && this.book.libraryMetadata.positions.length>0){
+      this.book.libraryMetadata.currentPosition=this.book.libraryMetadata.positions[0];
+    }
+  }
+
   back(){
     this.showBookDetail = false;
     this.showManualInsert = false;
-    this.showBarcodeReader = true;
+    this.showBarcodeReader = false;
   }
 
   manageSelectedMember(member){

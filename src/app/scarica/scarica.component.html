@@ -1,36 +1,60 @@
 <div class="container">
-    <h2>Scarica un libro</h2>
-    <div class="row" *ngIf="showBookDetail && !editBookMode">
-        <button class="btn btn-primary mb-2" (click)=back()>Indietro</button>
+    <div class="row">
+        <h2>Scarica un libro</h2>
     </div>
+
+    <div class="row" *ngIf="!showBarcodeReader && !showManualInsert && !showBookDetail">
+        <div class="row col-md-6">
+            <button class="btn btn-outline-light mt-auto bg-primary" (click)="showManualInsert=false; showBarcodeReader=true;">Scansiona Isbn</button>
+        </div>
+        <div class="row col-md-6">
+            <button class="btn btn-outline-light mt-auto bg-primary" (click)="showManualInsert=true; showBarcodeReader=false;">Scarica Libro manualmente</button>
+        </div>
+    </div>
+
     <div class="row" *ngIf="showBarcodeReader">
-            <button class="btn btn-outline-light mt-auto bg-primary" (click)="barcodeReader.stop(); showManualInsert=true; showBarcodeReader=false;">Inserisci ISBN manualmente</button>
         <app-barcode-reader #barcodeReader (barcode)="onDetected($event)"></app-barcode-reader>
     </div>
 
     <div class="row" *ngIf="showManualInsert">
         <div class="form-inline" >
-            <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn" 
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn"  (keyup.enter)="searchIsbn()"
                     required
                     [(ngModel)]="searchValue" name="searchValue">
             </div>
-            <button class="btn btn-primary mb-2" (click)=searchIsbn()>Cerca</button>
+            <button class="btn btn-primary mx-sm-3 mb-3" (click)=searchIsbn()>Cerca</button>
         </div>
     </div>
 
-    <div class="row" *ngIf="showBookDetail">
-        <app-book-detail [book]="book" [readonly]=false></app-book-detail>
-    </div>   
-    <br>
-    <div class="row" *ngIf="showBookDetail">
-        <app-manage-member [editMode]="false" (selectedMember)="selectedMember=$event"></app-manage-member>
-    </div>    
+    <div *ngIf="showBookDetail">
+        <div class="row" >
+            <app-book-detail [book]="book" [editMode]=true [readonly]=true></app-book-detail>
+        </div>
+        <div class="row">
+            <div class="input-group mb-3" style="width: max-content;">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputPosDeletedSelect">Posizione scaricata</label>
+                </div>
+                <select class="custom-select" id="inputPosDeletedSelect" [(ngModel)]="book.libraryMetadata.currentPosition" >
+                    <option *ngFor="let position of book.libraryMetadata.positions" [value]="position">{{position}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <app-manage-member [editMode]="false" (selectedMember)="selectedMember=$event"></app-manage-member>
+        </div>
+    </div> 
+    
     <div *ngIf="showBookDetail && selectedMember!=null">
         <div class="row">
             <h2>Libro Consegnato a: {{selectedMember.name}} {{selectedMember.surname}}</h2>
         </div>
         <app-insert-buttons [book]="book" [type]="'discard'" [selectedMember]="selectedMember"></app-insert-buttons>
+    </div>
+
+    <div class="row" *ngIf="showBookDetail || showBarcodeReader || showManualInsert">
+        <button class="btn btn-primary mb-3" (click)=back()>Indietro</button>
     </div>
 
 </div>

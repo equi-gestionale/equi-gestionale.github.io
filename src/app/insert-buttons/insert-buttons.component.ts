@@ -73,7 +73,11 @@ export class InsertButtonsComponent implements OnInit {
     this.showAlerts = false;
     console.log(this.book);
     console.log(this.selectedMember);
-    this.booksService.deleteIsbn(this.book.id).subscribe(
+    let pos = null;
+    if(this.book.libraryMetadata && this.book.libraryMetadata.currentPosition){
+      pos = this.book.libraryMetadata.currentPosition;
+    }
+    this.booksService.deleteIsbnInPosition(this.book.id,pos).subscribe(
       book => {
         console.log(this.book);
         this.book = book;

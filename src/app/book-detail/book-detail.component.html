@@ -90,8 +90,24 @@
       </div>
       <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.numberOfCopy" readonly>
     </div>
+    <div *ngIf="editMode">
+      <div class="input-group mb-3" *ngFor="let position of book.libraryMetadata.positions; let i = index; trackBy:trackByFn" >
+        <div class="input-group-prepend">
+          <span class="input-group-text">Posizione</span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.positions[i]" [(readonly)]="readonly">
+      </div>
+    </div>
+    <div *ngIf="!editMode">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Posizione</span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="book.libraryMetadata.currentPosition">
+      </div>
+    </div>
   </div>
-  <div class="input-group">
+  <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">Descrizione</span>
     </div>

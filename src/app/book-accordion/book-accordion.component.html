@@ -33,14 +33,20 @@
         </div>
         <div *ngIf="book.libraryMetadata.registrationDates">
           Date di registrazione:
-          <div *ngFor="let regDate of book.libraryMetadata.registrationDates">
+          <div *ngFor="let regDate of book.libraryMetadata.registrationDates" class="pl-3">
             {{regDate | date : "d MMMM yyyy hh:m"}} <br>
           </div>
         </div>
         <div *ngIf="book.libraryMetadata.deliveryDates">
           Date di consegna:
-          <div *ngFor="let delDate of book.libraryMetadata.deliveryDates">
+          <div *ngFor="let delDate of book.libraryMetadata.deliveryDates" class="pl-3">
             {{delDate | date : "d MMMM yyyy hh:m"}} <br>
+          </div>
+        </div>
+        <div *ngIf="book.libraryMetadata.positions">
+          Posizioni:
+          <div *ngFor="let position of book.libraryMetadata.positions" class="pl-3">
+              {{position}} <br>
           </div>
         </div>
         <div class="btn-toolbar">
