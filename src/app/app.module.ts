@@ -23,6 +23,7 @@ import { MemberDirective } from './member.directive';
 import { ManageMemberComponent } from './manage-member/manage-member.component';
 import { MemberAccordionComponent } from './member-accordion/member-accordion.component';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { Router } from '@angular/router';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, 
-      useFactory: function(router: Router) {
+      useFactory: function(router: Router, authenticationService: AuthenticationService) {
         return new JwtInterceptor(router);
       },useClass: JwtInterceptor, multi: true, deps: [Router] },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

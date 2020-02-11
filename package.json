@@ -25,6 +25,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.6.10",
     "express": "^4.17.1",
+    "jwt-decode": "^2.2.0",
     "ng2-bootstrap": "^1.6.3",
     "ngx-alerts": "^3.4.5",
     "ngx-barcode-scanner": "0.0.6",

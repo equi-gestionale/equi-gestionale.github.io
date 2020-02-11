@@ -17,35 +17,41 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-      path: 'login',
-      component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'inserisci',
-    component: InserisciComponent
+    component: InserisciComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'scarica',
-    component: ScaricaComponent
+    component: ScaricaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'catalogo',
-    component: CatalogoComponent
+    component: CatalogoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'ricerca',
-    component: RicercaComponent
+    component: RicercaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'inserisci-associato',
-    component: InsertMemberComponent
+    component: InsertMemberComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'gestisci-associato',
-    component: ManageMemberComponent
+    component: ManageMemberComponent,
+    canActivate: [AuthGuard]
   },
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '', canActivate: [AuthGuard]}
 ];
 
 @NgModule({
