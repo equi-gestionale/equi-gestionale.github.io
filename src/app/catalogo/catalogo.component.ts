@@ -83,16 +83,22 @@ export class CatalogoComponent implements OnInit {
     );
   }
 
-  formatExcelInput(books: Book[]){
-    
-  }
-  
   exportAllAsXLSX(){
     this.booksService.getAll().subscribe(
       booksPage => {
         console.log(booksPage);
         this.allBooks = booksPage.content;
-        
+        /*this.allBooks.forEach(function(el, index) {
+          this[index] = {'Titolo':el.title,
+                        'Autore':el.authors,
+                        'Editore':el.publisher,
+                        'Categoria':el.category,
+                        'Isbn':el.isbn,
+                        'Data Ultima Registrazione':new Date(Math.max.apply(null, el.libraryMetadata.registrationDates)),
+                        'Numero di Copie':el.libraryMetadata.numberOfCopy,
+                        'Posizioni':el.libraryMetadata.positions.join()
+                      };
+        }, this.allBooks);*/
         this.excelService.exportAsExcelFile(this.allBooks);
       },
       error => {
