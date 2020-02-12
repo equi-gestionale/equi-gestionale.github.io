@@ -88,17 +88,29 @@ export class CatalogoComponent implements OnInit {
       booksPage => {
         console.log(booksPage);
         this.allBooks = booksPage.content;
-        /*this.allBooks.forEach(function(el, index) {
+        this.allBooks.forEach(function(el, index) {
+          let nc = null;
+          let rd = null;
+          let p = null;
+          if(el.libraryMetadata!=null){
+            nc = el.libraryMetadata.numberOfCopy;
+            if(el.libraryMetadata.registrationDates!=null && el.libraryMetadata.registrationDates.length>0){
+              rd = new Date(el.libraryMetadata.registrationDates[el.libraryMetadata.registrationDates.length-1]);
+            }
+            if(el.libraryMetadata.positions!=null && el.libraryMetadata.positions.length>0){
+              p = el.libraryMetadata.positions.join(); 
+            } 
+          }
           this[index] = {'Titolo':el.title,
                         'Autore':el.authors,
                         'Editore':el.publisher,
                         'Categoria':el.category,
                         'Isbn':el.isbn,
-                        'Data Ultima Registrazione':new Date(Math.max.apply(null, el.libraryMetadata.registrationDates)),
-                        'Numero di Copie':el.libraryMetadata.numberOfCopy,
-                        'Posizioni':el.libraryMetadata.positions.join()
+                        'Data Ultima Registrazione':rd,
+                        'Numero di Copie':nc,
+                        'Posizioni':p
                       };
-        }, this.allBooks);*/
+        }, this.allBooks);
         this.excelService.exportAsExcelFile(this.allBooks);
       },
       error => {
