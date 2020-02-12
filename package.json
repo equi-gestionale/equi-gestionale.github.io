@@ -25,6 +25,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.6.10",
     "express": "^4.17.1",
+    "file-saver": "^2.0.2",
     "jwt-decode": "^2.2.0",
     "ng2-bootstrap": "^1.6.3",
     "ngx-alerts": "^3.4.5",
@@ -33,10 +34,11 @@
     "quagga": "^0.12.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.10.0",
+    "xlsx": "^0.15.5",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.9",
+    "@angular-devkit/build-angular": "^0.900.1",
     "@angular/cli": "^7.2.4",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "^7.2.15",

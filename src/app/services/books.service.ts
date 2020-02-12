@@ -18,6 +18,7 @@ const httpOptions = {
 export class BooksService {
 
   private BASE_URL = environment.apiEquilibristiWs+'/api/v1/library/books';
+  private MAX_PAGE_SIZE = 100000;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -65,6 +66,13 @@ export class BooksService {
 
   lastsDeleted(page:number, size:number): Observable<BooksPage>{
     return this.httpClient.get<BooksPage>(this.BASE_URL+"?page="+page+"&size="+size+"&sort=libraryMetadata.deliveryDates", httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getAll(): Observable<BooksPage>{
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?page=0&size="+this.MAX_PAGE_SIZE+"&sort=libraryMetadata.registrationDates", httpOptions)
     .pipe(
       catchError(this.handleError)
     );

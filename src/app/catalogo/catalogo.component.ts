@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
 import { BooksService } from '../services/books.service';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })
+
+
 export class CatalogoComponent implements OnInit {
 
   itemsPerPage: number;
@@ -20,8 +23,9 @@ export class CatalogoComponent implements OnInit {
   totalDelPages:number;
   delBookPage: any;
   previousDelBooksPage: any;
+  allBooks: Book[];
 
-  constructor(private booksService: BooksService) { 
+  constructor(private booksService: BooksService, private excelService: ExcelService) { 
     this.itemsPerPage = 10;
     this.insBooks = [];
     this.delBooks = [];
@@ -32,6 +36,8 @@ export class CatalogoComponent implements OnInit {
     this.loadLastsInserted();
     this.loadLastDeleted();
   }
+
+  
 
   ngOnInit() {}
 
@@ -70,6 +76,24 @@ export class CatalogoComponent implements OnInit {
         this.delBooks = booksPage.content;
         this.totalDelBooks = booksPage.totalElements;
         this.totalDelPages = booksPage.totalPages;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  formatExcelInput(books: Book[]){
+    
+  }
+  
+  exportAllAsXLSX(){
+    this.booksService.getAll().subscribe(
+      booksPage => {
+        console.log(booksPage);
+        this.allBooks = booksPage.content;
+        
+        this.excelService.exportAsExcelFile(this.allBooks);
       },
       error => {
         console.log(error);

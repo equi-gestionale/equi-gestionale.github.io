@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +58,8 @@ import { AuthenticationService } from './services/authentication.service';
         return new JwtInterceptor(router);
       },useClass: JwtInterceptor, multi: true, deps: [Router] },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }
+    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter },
+    { provide: LOCALE_ID, useValue: "it-IT" }
   ],
   bootstrap: [AppComponent]
 })
