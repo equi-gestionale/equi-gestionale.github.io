@@ -34,13 +34,13 @@
         <div *ngIf="book.libraryMetadata.registrationDates">
           Date di registrazione:
           <div *ngFor="let regDate of book.libraryMetadata.registrationDates" class="pl-3">
-            {{regDate | date : "d MMMM yyyy hh:m"}} <br>
+            {{regDate | date : "d MMMM yyyy HH:m"}} <br>
           </div>
         </div>
         <div *ngIf="book.libraryMetadata.deliveryDates">
           Date di consegna:
           <div *ngFor="let delDate of book.libraryMetadata.deliveryDates" class="pl-3">
-            {{delDate | date : "d MMMM yyyy hh:m"}} <br>
+            {{delDate | date : "d MMMM yyyy HH:m"}} <br>
           </div>
         </div>
         <div *ngIf="book.libraryMetadata.positions">

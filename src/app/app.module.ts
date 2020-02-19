@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
+import localeIt from '@angular/common/locales/it';
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +25,8 @@ import { ManageMemberComponent } from './manage-member/manage-member.component';
 import { MemberAccordionComponent } from './member-accordion/member-accordion.component';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+
+registerLocaleData(localeIt,'it');
 
 @NgModule({
   declarations: [
@@ -58,7 +61,8 @@ import { AuthenticationService } from './services/authentication.service';
         return new JwtInterceptor(router);
       },useClass: JwtInterceptor, multi: true, deps: [Router] },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }
+    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter },
+    { provide: LOCALE_ID, useValue: "it" },
   ],
   bootstrap: [AppComponent]
 })
