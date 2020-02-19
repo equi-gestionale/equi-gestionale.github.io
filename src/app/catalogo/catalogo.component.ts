@@ -24,6 +24,7 @@ export class CatalogoComponent implements OnInit {
   delBookPage: any;
   previousDelBooksPage: any;
   allBooks: Book[];
+  isDownloadingExcel: boolean;
 
   constructor(private booksService: BooksService, private excelService: ExcelService) { 
     this.itemsPerPage = 10;
@@ -35,6 +36,7 @@ export class CatalogoComponent implements OnInit {
     this.previousInsBooksPage = 1;
     this.loadLastsInserted();
     this.loadLastDeleted();
+    this.isDownloadingExcel = false;
   }
 
   
@@ -84,6 +86,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   exportAllAsXLSX(){
+    this.isDownloadingExcel = true;
     this.booksService.getAll().subscribe(
       booksPage => {
         console.log(booksPage);
@@ -112,9 +115,11 @@ export class CatalogoComponent implements OnInit {
                       };
         }, this.allBooks);
         this.excelService.exportAsExcelFile(this.allBooks);
+        this.isDownloadingExcel = false;
       },
       error => {
         console.log(error);
+        this.isDownloadingExcel = false;
       }
     );
   }

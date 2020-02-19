@@ -3,7 +3,10 @@
     <h2>Catalogo degli Equilibristi</h2>
   </div>
   <div class="row col-md-6">
-    <button class="btn btn-outline-light mt-auto bg-primary" (click)="exportAllAsXLSX()">Scarica il catalogo</button>
+    <button class="btn btn-outline-light mt-auto bg-primary" (click)="exportAllAsXLSX()">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isDownloadingExcel"></span>
+        Scarica il catalogo
+      </button>
   </div>
   <div class="row" >
     <h3>Ultimi libri aggiunti al catalogo</h3>
