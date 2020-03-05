@@ -137,18 +137,30 @@
       </div>
 
       <div class="input-group mb-3 form-group" *ngIf="member.membership.standard">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="memberColor">Tipo di socio</label>
-          </div>
-          <select class="custom-select" id="memberColor" name="memberColor" [(ngModel)]="member.membership.memberColor" #memberColor="ngModel">
-            <option value="Yellow" selected>Yellow</option>
-            <option value="Yellow">Orange</option>
-            <option value="Green">Green</option>
-            <option value="Pink">Pink</option>
-            <option value="Pink">Altra tessera</option>
-          </select>
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="memberColor">Tipo di socio</label>
         </div>
-        
+        <select class="custom-select" id="memberColor" name="memberColor" [(ngModel)]="member.membership.memberColor" #memberColor="ngModel">
+          <option value="Yellow" selected>Yellow</option>
+          <option value="Orange">Orange</option>
+          <option value="Green">Green</option>
+          <option value="Pink">Pink</option>
+          <option value="Altra tessera">Altra tessera</option>
+        </select>
+      </div>
+
+
+      <div class="input-group mb-3 form-group" *ngIf="member.membership.standard">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Numero tessera</span>
+        </div>
+        <input type="text" class="form-control"  [(ngModel)]="member.membership.membershipNumber" id="membershipNumber" required name="membershipNumber" #membershipNumber="ngModel" >
+      </div>
+
+      <div *ngIf="memberForm.errors?.membershipNumberError && 
+          (standard.touched || standard.dirty)" class="cross-validation-error-message alert alert-danger">
+          Il socio deve avere un numero di tessera.
+      </div>
 
       <div class="input-group mb-3 form-group">
         <div class="form-check">

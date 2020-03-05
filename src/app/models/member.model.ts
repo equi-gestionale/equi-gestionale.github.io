@@ -57,6 +57,7 @@ export class Member {
     privacy:boolean;
     newsletterEnabled:boolean;
     memberColor: string;
+    membershipNumber: string;
   }
 
   export class MembersPage{
