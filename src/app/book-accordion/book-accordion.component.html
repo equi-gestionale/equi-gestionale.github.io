@@ -31,25 +31,25 @@
         <div *ngIf="book.description">
           Descrizione: {{book.description}}<br>
         </div>
-        <div *ngIf="book.libraryMetadata.registrationDates">
+        <div *ngIf="book.libraryMetadata.registrationDates && currentUser">
           Date di registrazione:
           <div *ngFor="let regDate of book.libraryMetadata.registrationDates" class="pl-3">
             {{regDate | date : "d MMMM yyyy HH:m"}} <br>
           </div>
         </div>
-        <div *ngIf="book.libraryMetadata.deliveryDates">
+        <div *ngIf="book.libraryMetadata.deliveryDates && currentUser">
           Date di consegna:
           <div *ngFor="let delDate of book.libraryMetadata.deliveryDates" class="pl-3">
             {{delDate | date : "d MMMM yyyy HH:m"}} <br>
           </div>
         </div>
-        <div *ngIf="book.libraryMetadata.positions">
+        <div *ngIf="book.libraryMetadata.positions && currentUser">
           Posizioni:
           <div *ngFor="let position of book.libraryMetadata.positions" class="pl-3">
               {{position}} <br>
           </div>
         </div>
-        <div class="btn-toolbar">
+        <div class="btn-toolbar" *ngIf="currentUser">
           <button class="btn btn-info mr-2" (click)='edit(book)'>Modifica <i class="fas fa-edit"></i></button>
           <button class="btn btn-info" (click)='delete(book)'>Scarica <i class="fas fa-file-export"></i></button>
         </div>
