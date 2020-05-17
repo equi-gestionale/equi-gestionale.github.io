@@ -13,6 +13,10 @@ import { ManageMemberComponent } from './manage-member/manage-member.component';
 const routes: Routes = [
   {
     path: '',
+    component: RicercaComponent
+  },
+  {
+    path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
@@ -37,8 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'ricerca',
-    component: RicercaComponent,
-    canActivate: [AuthGuard]
+    component: RicercaComponent
   },
   {
     path: 'inserisci-associato',
@@ -51,7 +54,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   // otherwise redirect to home
-  { path: '**', redirectTo: '', canActivate: [AuthGuard]}
+  { path: '**', redirectTo: 'home', canActivate: [AuthGuard]}
 ];
 
 @NgModule({
