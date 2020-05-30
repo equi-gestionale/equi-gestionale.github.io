@@ -67,6 +67,7 @@ export class InsertMemberComponent implements OnInit {
       'phone': new FormControl(),'email': new FormControl(),'qualification': new FormControl(),
       'profession': new FormControl(),'hobby': new FormControl(),'website': new FormControl(),
       'note': new FormControl(),'standard': new FormControl(), 'schoolclass': new FormControl(),
+      'memberColor': new FormControl(),'membershipNumber': new FormControl(),
       'amount': new FormControl(),'className': new FormControl(),'privacy': new FormControl(),
       'newsletterEnabled': new FormControl(),'date': new FormControl()},{ validators: customMemberValidator });
   }

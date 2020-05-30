@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^7.2.4",
-    "@angular/compiler-cli": "^7.2.15",
+    "@angular/compiler-cli": "^7.2.16",
     "@angular/language-service": "^7.2.15",
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "^2.0.8",
@@ -53,7 +53,7 @@
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.4.0",
+    "protractor": "^5.4.3",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
