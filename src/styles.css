@@ -42,6 +42,9 @@ html, body {
     .row {margin-left: -10px; margin-right: -10px;}
     h2 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-height: 1; font-size: 1.8em; margin-bottom: .75em; }
     h3 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-height: 1; font-size: 1em; margin-bottom: .50em; }
-    .card-header{padding: .5rem .75rem;}
+    .card-header{padding: .5rem 0rem;}
     .card-header span {font-size: 14px;}
+    .card-header div {font-size: 14px;}
+    .card-header .row {margin-left: 0px; margin-right: 0px;}
+    .card-header .col-3 {padding-right: 5px; padding-left: 5px;}
     }
