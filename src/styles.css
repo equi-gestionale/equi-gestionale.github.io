@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*weebly fonts*/
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?amily=Playfair+Display:400,700,400italic,700italic&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&amp;subset=latin,latin-ext');
+
+/*weebly styles
+@import url('./assets/main_style_weebly.css');*/
+.jumbotron {background-color: #ffffff; padding: 2rem; padding-top: 4rem;}
+h2 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-height: 1; font-size: 2.2em; margin-bottom: .75em; }
+.container h2 { color: #28657c; }
+h3 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-height: 1; font-size: 1.8em; margin-bottom: .50em; }
+.row h3 { color: #28657c; }
+.card-body h3 { color: #ffffff; }
+.wsite-button { padding: 8px 20px !important; }
+.wsite-button, .wsite-editor .wsite-button { color: #28657c !important; background-image: none !important; background: #ffffff !important; border: 3px solid #28657c !important; -webkit-transition: all 0.15s ease-in-out; -moz-transition: all 0.15s ease-in-out; -o-transition: all 0.15s ease-in-out; transition: all 0.15s ease-in-out; }
+.wsite-button .wsite-button-inner, .wsite-button:hover .wsite-button-inner { font-family: 'Maven Pro', sans-serif; padding: 0 !important; background: none !important; background-color: transparent !important; color: inherit !important; font-weight: bold; text-transform: uppercase; }
+.wsite-button { height: auto !important; line-height: 1 !important; }
+.wsite-button:hover { background: #28657c !important; color: #ffffff !important; }
+
+.input-group{margin-bottom: .75em;}
+.pagination{margin-top: 1em;}
+.page-link{color:#28657c;}
+.page-link:hover{color:#28657c;}
+.page-item.active .page-link{color:#ffffff; background-color: #28657c; border-color: #28657c;}
+
+html, body {
+    font-family: 'Playfair Display', sans-serif;
+    }
+
+/*barcode styles*/
 #barcode-scanner video, canvas{
     width: 100%;
     height: auto;

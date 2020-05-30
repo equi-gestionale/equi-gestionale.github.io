@@ -46,6 +46,13 @@ export class RicercaComponent implements OnInit {
     );
   }
 
+  ngAfterViewInit(){
+    // Send message to the top window (parent) at 500ms interval
+    setInterval(function() {
+      window.top.postMessage(document.body.scrollHeight, "*");
+    }, 500); 
+  }
+
 
   advancedSearch(){
     if(this.searchValue){this.searchedValue=""}

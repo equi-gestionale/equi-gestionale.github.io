@@ -13,7 +13,8 @@ import { ManageMemberComponent } from './manage-member/manage-member.component';
 const routes: Routes = [
   {
     path: '',
-    component: RicercaComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
@@ -41,6 +42,11 @@ const routes: Routes = [
   },
   {
     path: 'ricerca',
+    component: RicercaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ricerca-pubblica',
     component: RicercaComponent
   },
   {

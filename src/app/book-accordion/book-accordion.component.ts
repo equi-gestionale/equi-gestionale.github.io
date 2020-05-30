@@ -30,4 +30,9 @@ export class BookAccordionComponent implements OnInit {
     });
   }
 
+  prenota(){
+    let param = this.book.title+' '+this.book.isbn
+    window.open("https://equilibreria.weebly.com/prenota-un-libro.html?input="+param, "_blank");
+  }
+
 }
