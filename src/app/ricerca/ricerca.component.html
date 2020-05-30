@@ -2,7 +2,7 @@
   <div class="row" >
     <h2>Ricerca nel catalogo degli Equilibristi</h2>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="!isMobile">
     <div class="col-md-12">
         <div class="input-group" id="adv-search">
             <input type="text" class="form-control" placeholder="Titolo, Autore, Isbn, ..." (keyup.enter)=search()
@@ -42,6 +42,20 @@
         </div>
     </div>
   </div>
+  <div class="row" *ngIf="isMobile">
+    <div class="col-md-12">
+        <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="Titolo, Autore, Isbn, ..." (keyup.enter)=search()
+              required
+              [(ngModel)]="searchValue" name="searchValue"/>
+            <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <button type="button" class="wsite-button" (click)=search()><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
   <div *ngIf="!hideResults">
     <div class="row" *ngIf="books.length>0">
       <h3>Ho trovato questi libri:</h3>
@@ -56,7 +70,7 @@
     </div>
     <div class="row" *ngIf="totalPages>1">
       <ngb-pagination [collectionSize]="totalBooks" [pageSize]="pageSize" 
-        [(page)]="page" [maxSize]="5" [rotate]="true" (pageChange)="loadPage($event)">
+        [(page)]="page" [maxSize]="3" [rotate]="true" (pageChange)="loadPage($event)">
       </ngb-pagination>
     </div>
   </div>

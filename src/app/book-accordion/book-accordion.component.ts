@@ -11,12 +11,17 @@ export class BookAccordionComponent implements OnInit {
 
   isOpen: boolean;
   @Input() book: Book;
+  isMobile: boolean;
 
   constructor(private _router: Router) { }
 
   ngOnInit() {
     this.isOpen = false;
+    if (window.innerWidth <=480) { 
+      this.isMobile = true;
+    }
   }
+  
 
   edit(book: Book) {
     this._router.navigateByUrl("/inserisci", {

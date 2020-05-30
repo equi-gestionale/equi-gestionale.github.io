@@ -27,6 +27,7 @@ export class RicercaComponent implements OnInit {
   showErrorAlert: boolean;
   isAdvancedOpen: boolean;
   genres: Genre[];
+  isMobile: boolean;
 
   constructor(private booksService: BooksService, private genreService: GenreService) {}
 
@@ -44,6 +45,9 @@ export class RicercaComponent implements OnInit {
         console.log(error);
       }
     );
+    if (window.innerWidth <=480) { 
+      this.isMobile = true;
+    }
   }
 
   ngAfterViewInit(){
