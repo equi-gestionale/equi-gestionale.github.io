@@ -16,6 +16,7 @@ h2 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-heigh
 .container h2 { color: #28657c; }
 h3 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-height: 1; font-size: 1.8em; margin-bottom: .50em; }
 .row h3 { color: #28657c; }
+.card-body h3 { color: #ffffff; }
 .wsite-button { padding: 8px 20px !important; }
 .wsite-button, .wsite-editor .wsite-button { color: #28657c !important; background-image: none !important; background: #ffffff !important; border: 3px solid #28657c !important; -webkit-transition: all 0.15s ease-in-out; -moz-transition: all 0.15s ease-in-out; -o-transition: all 0.15s ease-in-out; transition: all 0.15s ease-in-out; }
 .wsite-button .wsite-button-inner, .wsite-button:hover .wsite-button-inner { font-family: 'Maven Pro', sans-serif; padding: 0 !important; background: none !important; background-color: transparent !important; color: inherit !important; font-weight: bold; text-transform: uppercase; }
