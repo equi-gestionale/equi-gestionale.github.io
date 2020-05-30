@@ -32,19 +32,22 @@
                                   <option *ngFor="let genre of genres" [value]="genre.genre">{{genre.genre}}</option>
                                 </select>
                               </div>
-                              <button type="submit" class="btn btn-primary mx-sm-3 mb-2 float-right" (click)=advancedSearch()><span class="glyphicon glyphicon-search" aria-hidden="true">Cerca</span></button>
+                              <button type="submit" class="wsite-button mx-sm-3 mb-2 float-right" (click)=advancedSearch()><span class="wsite-button-inner" aria-hidden="true">Cerca</span></button>
                             </form>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" (click)=search()><span class="glyphicon glyphicon-search" aria-hidden="true">Cerca</span></button>
+                    <button type="button" class="wsite-button" (click)=search()><span class="wsite-button-inner" aria-hidden="true">Cerca</span></button>
                 </div>
             </div>
         </div>
     </div>
   </div>
   <div *ngIf="!hideResults">
-    <div class="row" >
+    <div class="row" *ngIf="books.length>0">
       <h3>Ho trovato questi libri:</h3>
+    </div>
+    <div class="row" *ngIf="books.length==0">
+      <h3>Nessun libro trovato</h3>
     </div>
     <div class="row" *ngFor="let book of books" >
       <div class="col-md-12">

@@ -1,6 +1,11 @@
 <div class="card">
     <div class="card-header" (click)="isOpen = !isOpen">
-      {{book.authors}} - {{book.title}}
+      <div class="row align-items-center">
+        <span class="float-left col-8">{{book.authors}} - {{book.title}}</span>
+        <div class="col-4">
+          <button type="button" class="wsite-button float-right" (click)=prenota()><span class="wsite-button-inner" aria-hidden="true">Prenota</span></button>
+        </div>
+      </div>
     </div>
     <div *ngIf="isOpen == true">
       <div class="card-body">
