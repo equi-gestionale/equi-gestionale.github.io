@@ -1,9 +1,16 @@
 <div class="card">
-    <div class="card-header" (click)="isOpen = !isOpen">
+    <div class="card-header" (click)="clickCardHeader($event)">
       <div class="row align-items-center" *ngIf="!isMobile">
         <span class="float-left col-8">{{book.authors}} - {{book.title}}</span>
         <div class="col-4">
-          <button type="button" class="wsite-button float-right" (click)=prenota()><span class="wsite-button-inner" aria-hidden="true">Prenota</span></button>
+          <button type="button" class="wsite-button float-right" (click)=addedToChart() *ngIf="!isInChart" id="ad">
+            <span class="wsite-button-inner" aria-hidden="true" id="aaa">Aggiungi </span>
+            <i class="fas fa-shopping-cart" id="iad"></i>
+          </button>
+          <button type="button" class="wsite-button float-right" (click)=removedFromChart() *ngIf="isInChart" id="rd">
+            <span class="wsite-button-inner" aria-hidden="true" id="bbb">Rimuovi </span>
+            <i class="fas fa-trash-alt" id="ird"></i>
+          </button>
         </div>
       </div>
       <div class="row align-items-center" *ngIf="isMobile">
@@ -12,7 +19,8 @@
           <div class="row justify-content-center" >{{book.title}}</div>
         </div>
         <div class="col-3">
-          <button type="button" class="wsite-button float-right" (click)=prenota()><i class="fas fa-shopping-cart"></i></button>
+          <button type="button" class="wsite-button float-right" (click)=addedToChart() *ngIf="!isInChart" id="am"><i class="fas fa-shopping-cart" id="iam"></i></button>
+          <button type="button" class="wsite-button float-right" (click)=removedFromChart() *ngIf="isInChart" id="rm"><i class="fas fa-trash-alt" id="irm"></i></button>
         </div>
       </div>
     </div>

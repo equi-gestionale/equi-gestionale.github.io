@@ -10,7 +10,10 @@ import { Router } from "@angular/router";
 export class BookAccordionComponent implements OnInit {
 
   isOpen: boolean;
+  @Input() isInChart: boolean;
   @Input() book: Book;
+  @Output() addToChart:EventEmitter<Book> = new EventEmitter();
+  @Output() removeFromChart:EventEmitter<Book> = new EventEmitter();
   isMobile: boolean;
 
   constructor(private _router: Router) { }
@@ -21,8 +24,16 @@ export class BookAccordionComponent implements OnInit {
       this.isMobile = true;
     }
   }
-  
 
+  clickCardHeader(event){
+    if(event.srcElement.tagName!="path" && event.srcElement.tagName!="i" &&
+        event.srcElement.tagName!="BUTTON" && event.srcElement.tagName!="svg" &&
+        event.srcElement.id!="aaa" && event.srcElement.id!="bbb"){
+      this.isOpen = !this.isOpen
+    }
+    console.log(event);
+  }
+  
   edit(book: Book) {
     this._router.navigateByUrl("/inserisci", {
       state: { book: book }
@@ -37,7 +48,17 @@ export class BookAccordionComponent implements OnInit {
 
   prenota(){
     let param = this.book.title+' '+this.book.isbn
-    window.open("https://equilibreria.weebly.com/prenota-un-libro.html?input="+param, "_blank");
+    
+  }
+
+  addedToChart(){
+    this.addToChart.emit(this.book);
+    this.isInChart = true;
+  }
+
+  removedFromChart(){
+    this.removeFromChart.emit(this.book);
+    this.isInChart = false;
   }
 
 }

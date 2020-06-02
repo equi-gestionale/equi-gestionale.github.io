@@ -25,9 +25,11 @@ export class RicercaComponent implements OnInit {
   isEmpty: boolean;
   hideResults: boolean;
   showErrorAlert: boolean;
+  showHeavyChartAlert: boolean;
   isAdvancedOpen: boolean;
   genres: Genre[];
   isMobile: boolean;
+  chart: Book[] = [];
 
   constructor(private booksService: BooksService, private genreService: GenreService) {}
 
@@ -35,6 +37,7 @@ export class RicercaComponent implements OnInit {
     this.isAdvancedOpen=false
     this.hideResults=true;
     this.showErrorAlert = false;
+    this.showHeavyChartAlert = false;
     this.searchedValue="";
     this.genreService.getGenres().subscribe(
       res => {
@@ -106,6 +109,33 @@ export class RicercaComponent implements OnInit {
         this.showErrorAlert = true;
       }
     );
+  }
+
+  addToChart(book: Book){
+    this.chart.push(book);
+    console.log(this.chart);
+    console.log(this.chart[0]);  
+  }
+
+  removeFromChart(book: Book){
+    const index: number = this.chart.indexOf(book);
+    if (index !== -1) {
+        this.chart.splice(index, 1);
+    }
+    console.log(this.chart); 
+  }
+
+  toBookingPage(){
+    if(this.chart.length>5){
+      this.showHeavyChartAlert = true;
+    }else if(this.chart.length>0){
+      this.showHeavyChartAlert = false;
+      let param = "";
+      this.chart.forEach(function(elem){
+        param += elem.title+' '+elem.isbn+'; '
+      });
+      window.open("https://equilibreria.weebly.com/prenota-un-libro.html?input="+param, "_blank");
+    }
   }
 
 

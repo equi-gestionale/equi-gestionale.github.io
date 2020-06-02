@@ -13,6 +13,8 @@ h3 { font-family: 'Playfair Display', sans-serif; font-style: normal; line-heigh
 .wsite-button .wsite-button-inner, .wsite-button:hover .wsite-button-inner { font-family: 'Maven Pro', sans-serif; padding: 0 !important; background: none !important; background-color: transparent !important; color: inherit !important; font-weight: bold; text-transform: uppercase; }
 .wsite-button { height: auto !important; line-height: 1 !important; }
 .wsite-button:hover { background: #28657c !important; color: #ffffff !important; }
+.wsite-button:disabled, .wsite-editor .wsite-button:disabled {background: #808080 !important}
+.wsite-button:hover:disabled{ background: #808080 !important; color: #28657c !important; }
 
 .input-group{margin-bottom: .75em;}
 .pagination{margin-top: 1em;}
