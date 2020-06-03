@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from '../models/book.model';
 import { Router } from "@angular/router";
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-book-accordion',
@@ -15,8 +17,11 @@ export class BookAccordionComponent implements OnInit {
   @Output() addToChart:EventEmitter<Book> = new EventEmitter();
   @Output() removeFromChart:EventEmitter<Book> = new EventEmitter();
   isMobile: boolean;
-
-  constructor(private _router: Router) { }
+  currentUser: User;
+ 
+  constructor(private _router: Router, private authenticationService: AuthenticationService) { 
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
 
   ngOnInit() {
     this.isOpen = false;
