@@ -5,7 +5,7 @@ import { MembersService } from '../services/members.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { customMemberValidator } from '../member.directive';
 import { NgbDateCustomParserFormatter } from '../dateCustoFormatter';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-insert-member',
@@ -23,12 +23,14 @@ export class InsertMemberComponent implements OnInit {
   showAlerts: boolean;
   showSaveButton = true;
   editUserMode = false;
+  showSuccessDeleteAlert = false;
   benefits = ['','un libro','due libri','tre libri'];
 
   constructor(
     private calendar: NgbCalendar, 
     private membersService: MembersService,
-    public activatedRoute: ActivatedRoute) {}
+    public activatedRoute: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     if (window.history.state.member) {
@@ -36,23 +38,14 @@ export class InsertMemberComponent implements OnInit {
       this.member.birthdate = new Date(window.history.state.member.birthdate);
       this.member.membership.registrationDate = new Date(window.history.state.member.membership.registrationDate );
       this.editUserMode = true;
+      if(window.history.state.member.benefit==null){
+        this.member.benefit = new Benefit;
+        this.member.benefit.benefitUsed = false;
+      }
       console.log(this.member);
     } else {
       this.editUserMode = false;
-      let address = new Address;
-      let contacts = new Contacts;
-      let addInfo = new AddInfo;
-      this.member = new Member;
-      let membership = new Membership;
-      let benefit = new Benefit;
-      this.member.address = address;
-      this.member.contacts = contacts;
-      this.member.addInfo = addInfo;
-      this.member.membership = membership;
-      let today = this.calendar.getToday()
-      this.member.membership.registrationDate = new Date(today.year, today.month - 1, today.day);
-      this.member.benefit = benefit;
-      this.member.benefit.benefitUsed = false;
+      this.initializeMember();
     }
     
     this.showSuccessAlert = false;
@@ -70,6 +63,23 @@ export class InsertMemberComponent implements OnInit {
       'memberColor': new FormControl(),'membershipNumber': new FormControl(),
       'amount': new FormControl(),'className': new FormControl(),'privacy': new FormControl(),
       'newsletterEnabled': new FormControl(),'date': new FormControl()},{ validators: customMemberValidator });
+  }
+
+  initializeMember(){
+    let address = new Address;
+    let contacts = new Contacts;
+    let addInfo = new AddInfo;
+    this.member = new Member;
+    let membership = new Membership;
+    let benefit = new Benefit;
+    this.member.address = address;
+    this.member.contacts = contacts;
+    this.member.addInfo = addInfo;
+    this.member.membership = membership;
+    let today = this.calendar.getToday()
+    this.member.membership.registrationDate = new Date(today.year, today.month - 1, today.day);
+    this.member.benefit = benefit;
+    this.member.benefit.benefitUsed = false;
   }
 
   save(){
@@ -100,6 +110,32 @@ export class InsertMemberComponent implements OnInit {
 
   compareBenefitType(first, second){
     return first && second && first == second;
+  }
+
+  discardChanges(){
+    console.log("discar-chages");
+    this.router.navigateByUrl("/gestisci-associato");
+  }
+
+  deleteMember(){
+    if(confirm("Sei sicuro di voler eliminare "+this.member.name+" "+this.member.surname+"?")){
+      this.membersService.deleteMember(this.member).subscribe(
+        member => {
+          console.log(member);
+          this.initializeMember();
+          this.showAlerts = true;
+          this.showSuccessDeleteAlert = true;
+          this.showErrorAlert = false;
+          this.showSaveButton = false;
+        },
+        error => {
+          console.log(error);
+          this.showAlerts = true;
+          this.showSuccessDeleteAlert = false;
+          this.showErrorAlert = true;
+        }
+      );
+    }
   }
 
 }

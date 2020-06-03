@@ -15,7 +15,7 @@ export class MemberAccordionComponent implements OnInit {
   @Input() editMode: boolean;
   @Output() selectEvent:EventEmitter<Member> = new EventEmitter();
 
-  constructor(private _router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.isOpen = false;
@@ -27,7 +27,7 @@ export class MemberAccordionComponent implements OnInit {
   }
 
   edit(member: Member) {
-    this._router.navigateByUrl("/inserisci-associato", {
+    this.router.navigateByUrl("/inserisci-associato", {
       state: { member: member }
     });
   }

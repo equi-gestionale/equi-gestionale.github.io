@@ -26,6 +26,8 @@ html, body {
     font-family: 'Playfair Display', sans-serif;
     }
 
+
+.button-row button {margin-right: 1rem; margin-bottom: 1rem !important;}
 /*barcode styles*/
 #barcode-scanner video, canvas{
     width: 100%;

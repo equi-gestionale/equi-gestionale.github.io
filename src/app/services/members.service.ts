@@ -34,6 +34,13 @@ export class MembersService {
     );
   }
 
+  deleteMember(member: Member): Observable<Member>{
+    return this.httpClient.delete<Member>(this.BASE_URL+"/"+member.id, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   search(query: string, page:number, size:number): Observable<MembersPage>{
     return this.httpClient.get<MembersPage>(this.BASE_URL+"?q="+query+"&page="+page+"&size="+size, httpOptions)
     .pipe(

@@ -237,16 +237,31 @@
         </div>
     </div>
   </div>
-  <div class="row form-group" *ngIf="showSaveButton">
+  <div class="row form-group" *ngIf="showSaveButton && !editUserMode">
     <button type="submit" class="btn btn-success mb-2" [disabled]="!memberForm.form.valid">Inserisci</button>
+  </div>
+  <div class="row button-row" *ngIf="editUserMode">
+    <div class="form-group" *ngIf="showSaveButton">
+      <button type="submit" class="btn btn-success mb-2" [disabled]="!memberForm.form.valid">Salva Modifiche</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-warning mb-2" (click)="discardChanges()">Annulla</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-danger mb-2" (click)="deleteMember()">Elimina</button>
+    </div>
   </div>  
   </form>
   <div class="row" *ngIf="showAlerts">
     <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
       Salvataggio del socio avvenuto con successo!
     </div>
+    <div class="alert alert-success" role="alert" *ngIf="showSuccessDeleteAlert">
+      Eliminazione del socio avvenuta con successo!
+    </div>
     <div class="alert alert-danger" role="alert" *ngIf="showErrorAlert">
       Qualcosa è andato storto!!
     </div>
   </div>
+
 </div>
