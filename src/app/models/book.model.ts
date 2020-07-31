@@ -12,6 +12,7 @@ export class Book {
     language: string;
     category: string;
     thumbnail: string;
+    price: string;
     libraryMetadata: LibraryMetadata;
   }
 

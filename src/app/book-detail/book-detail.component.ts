@@ -43,6 +43,9 @@ export class BookDetailComponent implements OnInit {
     if(this.editMode){
       this.initPositions();
     }
+    if(this.book && !this.book.price){
+      this.book.price = '5 euro';
+    }
   }
 
   initPositions(){

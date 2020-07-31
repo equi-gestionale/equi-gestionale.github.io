@@ -28,6 +28,9 @@ export class BookAccordionComponent implements OnInit {
     if (window.innerWidth <=480) { 
       this.isMobile = true;
     }
+    if(this.book && !this.book.price){
+      this.book.price = '5 euro';
+    }
   }
 
   clickCardHeader(event){

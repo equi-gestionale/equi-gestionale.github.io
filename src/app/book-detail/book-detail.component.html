@@ -66,11 +66,17 @@
     <input type="text" class="form-control" [(ngModel)]="book.language" [(readonly)]="readonly">
   </div>
   <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Isbn</span>
-      </div>
-      <input type="text" class="form-control"  [(ngModel)]="book.isbn" [(readonly)]="readonly">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Isbn</span>
     </div>
+    <input type="text" class="form-control"  [(ngModel)]="book.isbn" [(readonly)]="readonly">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Prezzo</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="book.price" [(readonly)]="readonly">
+  </div>
   <div *ngIf=book.libraryMetadata>  
     <div class="input-group mb-3" *ngFor="let regDate of book.libraryMetadata.registrationDates">
       <div class="input-group-prepend">
