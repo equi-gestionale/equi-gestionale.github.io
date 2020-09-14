@@ -126,7 +126,7 @@ export class RicercaComponent implements OnInit {
   }
 
   toBookingPage(){
-    if(this.chart.length>5){
+    if(this.chart.length>25){
       this.showHeavyChartAlert = true;
     }else if(this.chart.length>0){
       this.showHeavyChartAlert = false;

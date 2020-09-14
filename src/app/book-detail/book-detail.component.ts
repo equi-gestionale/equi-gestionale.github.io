@@ -44,7 +44,7 @@ export class BookDetailComponent implements OnInit {
       this.initPositions();
     }
     if(this.book && !this.book.price){
-      this.book.price = '5 euro';
+      this.book.price = '7 euro';
     }
   }
 

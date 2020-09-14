@@ -29,7 +29,7 @@ export class BookAccordionComponent implements OnInit {
       this.isMobile = true;
     }
     if(this.book && !this.book.price){
-      this.book.price = '5 euro';
+      this.book.price = '7 euro';
     }
   }
 
