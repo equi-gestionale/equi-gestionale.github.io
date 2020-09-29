@@ -54,6 +54,7 @@ export class Member {
     className: string;
     amount:number;
     registrationDate:Date;
+    registrationEndDate:Date;
     privacy:boolean;
     newsletterEnabled:boolean;
     memberColor: string;

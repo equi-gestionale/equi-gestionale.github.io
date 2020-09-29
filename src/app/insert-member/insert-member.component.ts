@@ -37,6 +37,7 @@ export class InsertMemberComponent implements OnInit {
       this.member = window.history.state.member;
       this.member.birthdate = new Date(window.history.state.member.birthdate);
       this.member.membership.registrationDate = new Date(window.history.state.member.membership.registrationDate );
+      this.member.membership.registrationEndDate = new Date(window.history.state.member.membership.registrationEndDate );
       this.editUserMode = true;
       if(window.history.state.member.benefit==null){
         this.member.benefit = new Benefit;
@@ -62,7 +63,8 @@ export class InsertMemberComponent implements OnInit {
       'note': new FormControl(),'standard': new FormControl(), 'schoolclass': new FormControl(),
       'memberColor': new FormControl(),'membershipNumber': new FormControl(),
       'amount': new FormControl(),'className': new FormControl(),'privacy': new FormControl(),
-      'newsletterEnabled': new FormControl(),'date': new FormControl()},{ validators: customMemberValidator });
+      'newsletterEnabled': new FormControl(),'date': new FormControl(),'endDate': new FormControl()},
+      { validators: customMemberValidator });
   }
 
   initializeMember(){
@@ -76,8 +78,9 @@ export class InsertMemberComponent implements OnInit {
     this.member.contacts = contacts;
     this.member.addInfo = addInfo;
     this.member.membership = membership;
-    let today = this.calendar.getToday()
+    let today = this.calendar.getToday();
     this.member.membership.registrationDate = new Date(today.year, today.month - 1, today.day);
+    this.member.membership.registrationEndDate = new Date(today.year+1, today.month - 1, today.day);
     this.member.benefit = benefit;
     this.member.benefit.benefitUsed = false;
   }
@@ -98,6 +101,7 @@ export class InsertMemberComponent implements OnInit {
         this.member = member;
         this.member.birthdate = new Date(member.birthdate);
         this.member.membership.registrationDate = new Date(member.membership.registrationDate );
+        this.member.membership.registrationEndDate = new Date(member.membership.registrationEndDate );
       },
       error => {
         console.log(error);

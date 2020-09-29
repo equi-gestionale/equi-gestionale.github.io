@@ -7,13 +7,18 @@
         <h3>Cerca associato</h3>
     </div>
     <div class="row">
-        <div class="form-inline" >
+        <div class="form-inline col-md-6" >
             <div class="form-group mb-3">
                 <input type="text" class="form-control" id="inputIsbn" placeholder="Nome o Cognome" (keyup.enter)="search()"
                     required
                     [(ngModel)]="searchedValue" name="searchedValue">
             </div>
             <button class="btn btn-primary mx-sm-3 mb-3" (click)=search()>Cerca</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-light mt-auto bg-primary" (click)="exportAllAsXLSX()">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isDownloadingExcel"></span>
+            Scarica Elenco</button>
         </div>
     </div>
 
