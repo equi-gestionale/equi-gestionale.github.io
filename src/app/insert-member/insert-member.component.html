@@ -224,17 +224,29 @@
         </div>
       </div>
       <div class="input-group mb-3 form-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Data iscrizione</span>
-          </div>
-          <input class="form-control" placeholder="dd/mm/yyyy" 
-                ngbDatepicker #d2="ngbDatepicker" [(ngModel)]="member.membership.registrationDate" id="date" name="date" #date="ngModel" >
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
-                <i class="fas fa-calendar-alt"></i>
-            </button>
-          </div>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Data iscrizione</span>
         </div>
+        <input class="form-control" placeholder="dd/mm/yyyy" 
+              ngbDatepicker #d2="ngbDatepicker" [(ngModel)]="member.membership.registrationDate" id="date" name="date" #date="ngModel" >
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
+              <i class="fas fa-calendar-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="input-group mb-3 form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Data scadenza iscrizione</span>
+        </div>
+        <input class="form-control" placeholder="dd/mm/yyyy" 
+              ngbDatepicker #ed2="ngbDatepicker" [(ngModel)]="member.membership.registrationEndDate" id="endDate" name="endDate" #endDate="ngModel" >
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="ed2.toggle()" type="button">
+              <i class="fas fa-calendar-alt"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row form-group" *ngIf="showSaveButton && !editUserMode">

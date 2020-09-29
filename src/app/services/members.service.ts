@@ -17,6 +17,7 @@ const httpOptions = {
 export class MembersService {
 
   private BASE_URL = environment.apiEquilibristiWs+'/api/v1/library/members';
+  private MAX_PAGE_SIZE = 10000;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -43,6 +44,13 @@ export class MembersService {
 
   search(query: string, page:number, size:number): Observable<MembersPage>{
     return this.httpClient.get<MembersPage>(this.BASE_URL+"?q="+query+"&page="+page+"&size="+size, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getAllMembers(): Observable<MembersPage>{
+    return this.httpClient.get<MembersPage>(this.BASE_URL+"?q=&page=0&size="+this.MAX_PAGE_SIZE, httpOptions)
     .pipe(
       catchError(this.handleError)
     );
