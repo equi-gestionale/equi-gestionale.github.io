@@ -37,7 +37,12 @@ export class InsertMemberComponent implements OnInit {
       this.member = window.history.state.member;
       this.member.birthdate = new Date(window.history.state.member.birthdate);
       this.member.membership.registrationDate = new Date(window.history.state.member.membership.registrationDate );
-      this.member.membership.registrationEndDate = new Date(window.history.state.member.membership.registrationEndDate );
+      if(window.history.state.member.membership.registrationEndDate){
+        this.member.membership.registrationEndDate = new Date(window.history.state.member.membership.registrationEndDate );
+      }else{
+        this.member.membership.registrationEndDate = new Date(window.history.state.member.membership.registrationDate );
+        this.member.membership.registrationEndDate.setFullYear(this.member.membership.registrationEndDate.getFullYear()+1);
+      }
       this.editUserMode = true;
       if(window.history.state.member.benefit==null){
         this.member.benefit = new Benefit;
