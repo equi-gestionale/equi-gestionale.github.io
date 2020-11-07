@@ -71,6 +71,13 @@ export class BooksService {
     );
   }
 
+  publicLibrary(): Observable<BooksPage>{
+    return this.httpClient.get<BooksPage>(this.BASE_URL+"?type=publicImageRandom", httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getAll(): Observable<BooksPage>{
     return this.httpClient.get<BooksPage>(this.BASE_URL+"?page=0&size="+this.MAX_PAGE_SIZE+"&sort=libraryMetadata.registrationDates", httpOptions)
     .pipe(

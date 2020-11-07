@@ -82,7 +82,7 @@ export class RicercaComponent implements OnInit {
     this.searchedValue = this.searchValue;
     this.page = 1;
     this.previousPage = this.page;
-    this.pageSize=10;
+    this.pageSize=5;
     this.showErrorAlert = false;
     this.load();
   }

@@ -25,6 +25,8 @@ import { ManageMemberComponent } from './manage-member/manage-member.component';
 import { MemberAccordionComponent } from './member-accordion/member-accordion.component';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { BookCardComponent } from './book-card/book-card.component';
+import { PublicLibraryComponent } from './public-library/public-library.component';
 
 registerLocaleData(localeIt,'it');
 
@@ -44,7 +46,9 @@ registerLocaleData(localeIt,'it');
     InsertMemberComponent,
     MemberDirective,
     ManageMemberComponent,
-    MemberAccordionComponent
+    MemberAccordionComponent,
+    BookCardComponent,
+    PublicLibraryComponent
   ],
   imports: [
     BrowserModule,
