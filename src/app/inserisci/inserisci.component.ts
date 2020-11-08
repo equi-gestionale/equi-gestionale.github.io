@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GoogleBookService} from '../services/google-book.service';
 import { Book } from '../models/book.model';
+import { BooksService } from '../services/books.service';
 
 @Component({
   selector: 'app-inserisci',
@@ -17,9 +18,10 @@ export class InserisciComponent implements OnInit {
   barcode = '';
   book: Book;
   editBookMode : boolean;
+  showFoundInLibrary: boolean;
   
 
-  constructor(private googleApi: GoogleBookService) { 
+  constructor(private googleApi: GoogleBookService, private booksService: BooksService,) { 
     this.showBarcodeReader = false;
     this.showBookDetail = false;
     this.showManualInsert = false;
@@ -40,6 +42,7 @@ export class InserisciComponent implements OnInit {
       this.showBookDetail = false;
       this.showManualInsert = false;
       this.editBookMode = false;
+      this.showFoundInLibrary = false;
     }
   }
 
@@ -57,21 +60,39 @@ export class InserisciComponent implements OnInit {
     this.searchValue = this.searchValue.replace('-', '').trim();
     console.log(this.searchValue);
     this.barcode = this.searchValue;
-    this.googleApi.searchIsbn(this.barcode).subscribe(
-      book => {
-        this.book = book;
-        console.log(this.book);
-        this.showBookDetail = true;
-        this.showManualInsert = false;
-        this.showBarcodeReader = false;
+    this.booksService.search(this.barcode,0,1).subscribe(
+      booksPage => {
+        console.log(booksPage);
+        if(booksPage.totalElements>0){
+          this.setBookInComponent(booksPage.content[0]);
+          this.showFoundInLibrary = true;
+        }else{
+          this.googleApi.searchIsbn(this.barcode).subscribe(
+            book => {
+              this.setBookInComponent(book);
+            }
+          );
+        }
+      },
+      error => {
+        console.log(error);
       }
     );
+  }
+
+  private setBookInComponent(book: Book){
+    this.book = book;
+    console.log(this.book);
+    this.showBookDetail = true;
+    this.showManualInsert = false;
+    this.showBarcodeReader = false;
   }
 
   back(){
     this.showBookDetail = false;
     this.showManualInsert = false;
     this.showBarcodeReader = false;
+    this.showFoundInLibrary = false;
   }
 
 

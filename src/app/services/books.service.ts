@@ -36,15 +36,22 @@ export class BooksService {
     );
   }
 
+  deleteIsbnForce(id: string, force: string): Observable<Book>{
+    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id+"?force="+force, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   deleteIsbn(id: string): Observable<Book>{
-    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id, httpOptions)
+    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id+"?force=false", httpOptions)
     .pipe(
       catchError(this.handleError)
     );
   }
 
   deleteIsbnInPosition(id: string, pos: string): Observable<Book>{
-    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id+"?position="+pos, httpOptions)
+    return this.httpClient.delete<Book>(this.BASE_URL+"/"+id+"?position="+pos+"&force=false", httpOptions)
     .pipe(
       catchError(this.handleError)
     );
