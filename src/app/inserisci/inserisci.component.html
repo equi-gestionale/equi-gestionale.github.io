@@ -30,8 +30,13 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="showBookDetail">
-        <app-book-detail [book]="book" [readonly]=false [editMode]="editBookMode" (selectEvent)="selectNotEmpty=$event"></app-book-detail>
+    <div *ngIf="showBookDetail">
+        <div class="row" *ngIf="showFoundInLibrary">
+            <p>Libro già presente a catalogo, ne verrà aggiunta una copia a meno che non modifichi l'isbn. Correggi eventuali dati errati.</p>
+        </div>
+        <div class="row">
+            <app-book-detail [book]="book" [readonly]=false [editMode]="editBookMode" (selectEvent)="selectNotEmpty=$event"></app-book-detail>
+        </div>
     </div>   
     
     <div class="row" *ngIf="(showBookDetail || showBarcodeReader || showManualInsert) && !editBookMode">

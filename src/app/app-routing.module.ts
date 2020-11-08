@@ -9,6 +9,7 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { InsertMemberComponent } from './insert-member/insert-member.component';
 import { ManageMemberComponent } from './manage-member/manage-member.component';
+import { PublicLibraryComponent } from './public-library/public-library.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'ricerca-pubblica',
     component: RicercaComponent
+  },
+  {
+    path: 'libreria-pubblica',
+    component: PublicLibraryComponent
   },
   {
     path: 'inserisci-associato',

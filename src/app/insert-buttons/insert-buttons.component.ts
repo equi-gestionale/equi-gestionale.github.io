@@ -69,6 +69,29 @@ export class InsertButtonsComponent implements OnInit {
     }
   }
 
+  delete(){
+    this.showAlerts = false;
+    console.log(this.book);
+    if(confirm("Sei sicuro di voler cancellare il libro? Tutti i dati inseriti andranno persi.")){
+      this.booksService.deleteIsbnForce(this.book.id, "true").subscribe(
+        book => {
+          console.log(book);
+          this.showAlerts = true;
+          this.showSuccessAlert = true;
+          this.showErrorAlert = false;
+          this.showValidationErrorAlert = false;
+          this.book = null;
+        },
+        error => {
+          console.log(error);
+          this.showAlerts = true;
+          this.showErrorAlert = true;
+          this.showValidationErrorAlert = false;
+        }
+      );
+    }
+  }
+
   discard(){
     this.showAlerts = false;
     console.log(this.book);
@@ -79,7 +102,7 @@ export class InsertButtonsComponent implements OnInit {
     }
     this.booksService.deleteIsbnInPosition(this.book.id,pos).subscribe(
       book => {
-        console.log(this.book);
+        console.log(book);
         this.book = book;
         if(this.selectedMember!=null){
           this.addTakenBook();
@@ -117,7 +140,7 @@ export class InsertButtonsComponent implements OnInit {
 
 
   private validateBook(book: Book): boolean{
-    if(!book.title || !book.authors || !book.category)
+    if(!book.title || !book.authors || !book.category || !book.isbn)
       return false;
     return true;
   }
