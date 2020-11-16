@@ -12,6 +12,7 @@ import { User } from '../user';
 export class BookAccordionComponent implements OnInit {
 
   isOpen: boolean;
+  @Input() isChartEnabled: boolean;
   @Input() isInChart: boolean;
   @Input() book: Book;
   @Output() addToChart:EventEmitter<Book> = new EventEmitter();
@@ -30,6 +31,9 @@ export class BookAccordionComponent implements OnInit {
     }
     if(this.book && !this.book.price){
       this.book.price = '7 euro';
+    }
+    if(this.isChartEnabled == null){
+      this.isChartEnabled = false;
     }
   }
 

@@ -92,7 +92,7 @@
     </div>
     <div class="row" *ngFor="let book of books" >
       <div class="col-md-12">
-        <app-book-accordion [book]="book" (addToChart)="addToChart($event)" (removeFromChart)="removeFromChart($event)"></app-book-accordion>
+        <app-book-accordion [book]="book" [isChartEnabled]=true (addToChart)="addToChart($event)" (removeFromChart)="removeFromChart($event)"></app-book-accordion>
       </div>
     </div>
     <div class="row" *ngIf="totalPages>1">
