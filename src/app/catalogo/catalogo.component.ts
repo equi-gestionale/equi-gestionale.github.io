@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
+import { AuthenticationService } from '../services/authentication.service';
 import { BooksService } from '../services/books.service';
 import { ExcelService } from '../services/excel.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-catalogo',
@@ -25,8 +27,10 @@ export class CatalogoComponent implements OnInit {
   previousDelBooksPage: any;
   allBooks: Book[];
   isDownloadingExcel: boolean;
+  currentUser: User;
 
-  constructor(private booksService: BooksService, private excelService: ExcelService) { 
+  constructor(private booksService: BooksService, private excelService: ExcelService, private authenticationService: AuthenticationService) { 
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.itemsPerPage = 5;
     this.insBooks = [];
     this.delBooks = [];
