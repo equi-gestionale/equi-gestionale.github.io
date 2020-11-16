@@ -27,7 +27,7 @@ export class CatalogoComponent implements OnInit {
   isDownloadingExcel: boolean;
 
   constructor(private booksService: BooksService, private excelService: ExcelService) { 
-    this.itemsPerPage = 10;
+    this.itemsPerPage = 5;
     this.insBooks = [];
     this.delBooks = [];
     this.insBookPage = 1;

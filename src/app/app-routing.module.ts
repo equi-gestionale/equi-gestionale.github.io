@@ -42,6 +42,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'catalogo-pubblico',
+    component: CatalogoComponent
+  },
+  {
     path: 'ricerca',
     component: RicercaComponent,
     canActivate: [AuthGuard]
