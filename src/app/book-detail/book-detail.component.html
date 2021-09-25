@@ -3,7 +3,7 @@
   <div *ngIf="book.thumbnail">
     <img src="{{book.thumbnail}}" class="img-fluid img-thumbnail" alt="Cover"> 
   </div>
-  <button class="btn btn-outline-secondary align-self-center" (click)="removeThumbnail()" type="button">
+  <button class="btn btn-outline-secondary del-img align-self-center" (click)="removeThumbnail()" type="button">
     <div *ngIf="book.thumbnail"><i class="fas fa-trash-alt" ></i></div>
     <div *ngIf="tmpThumbnail"><i class="far fa-image" ></i></div>
   </button>
@@ -45,14 +45,20 @@
       <div class="alert alert-danger mb-3" role="alert">
         Inserire il genere
       </div>
-    </div>
-  <div class="input-group mb-3" >
+  </div>
+
+  <div class="input-group mb-3 ">
     <div class="input-group-prepend">
       <span class="input-group-text">Data di pubblicazione</span>
     </div>
-    <input type="text" class="form-control" [ngModel]="book.publishedDate | date : 'd MMMM yyyy'"
-      (ngModelChange)="book.publishedDate=$event" [(readonly)]="readonly">
-  </div>
+    <input class="form-control" placeholder="dd/mm/yyyy" [minDate]="{year: 1900, month: 1, day: 1}" [maxDate]="{year: 2025, month: 12, day: 31}"
+          ngbDatepicker #d="ngbDatepicker" id="publishedDate" name="publishedDate" [(ngModel)]="book.publishedDate" required #publishedDate="ngModel">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+          <i class="fas fa-calendar-alt"></i>
+      </button>
+    </div>
+  </div>  
   <div class="input-group mb-3"  >
     <div class="input-group-prepend">
       <span class="input-group-text">Numero di Pagine</span>

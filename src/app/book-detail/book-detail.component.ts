@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateCustomParserFormatter } from '../dateCustoFormatter';
 
 import { Book, Genre, LibraryMetadata } from '../models/book.model';
 import { GenreService } from '../services/genre.service';
@@ -6,7 +8,10 @@ import { GenreService } from '../services/genre.service';
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css']
+  styleUrls: ['./book-detail.component.css'],
+  providers: [
+    {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}
+   ]
 })
 export class BookDetailComponent implements OnInit {
 
@@ -45,6 +50,9 @@ export class BookDetailComponent implements OnInit {
     }
     if(this.book && !this.book.price){
       this.book.price = '7 euro';
+    }
+    if(window.history.state.book){
+      this.book.publishedDate = new Date(window.history.state.book.publishedDate);
     }
   }
 
