@@ -1,0 +1,10 @@
+stages:
+    - pushToHeroku
+
+pushToHeroku:
+    stage: pushToHeroku
+    script:
+    - gem install dpl
+    - dpl --provider=heroku --app=equilibristi-app --api-key=$HEROKU_API_KEY
+    only:
+        - master
