@@ -10,6 +10,7 @@ import { RicercaComponent } from './ricerca/ricerca.component';
 import { InsertMemberComponent } from './insert-member/insert-member.component';
 import { ManageMemberComponent } from './manage-member/manage-member.component';
 import { PublicLibraryComponent } from './public-library/public-library.component';
+import { GestisciScaffaleComponent } from './gestisci-scaffale/gestisci-scaffale.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
   {
     path: 'gestisci-associato',
     component: ManageMemberComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'gestisci-scaffale',
+    component: GestisciScaffaleComponent,
     canActivate: [AuthGuard]
   },
   // otherwise redirect to home

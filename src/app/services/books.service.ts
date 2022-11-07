@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Book, BooksPage } from '../models/book.model';
 
@@ -24,6 +24,25 @@ export class BooksService {
 
   insertBook(book: Book): Observable<Book>{
     return this.httpClient.post<Book>(this.BASE_URL, book, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchBooksByPosition(position: String): Observable<Book[]>{
+    console.log("position"+position);
+    return this.httpClient.get<BooksPage>(this.BASE_URL+'/position?shelf='+position, httpOptions)
+    .pipe(
+      map(booksPage => booksPage.content),
+      catchError(this.handleError)
+    );
+  }
+
+  moveBooksByPosition(oldPosition: String, newPosition: String): Observable<HttpResponse<Object>>{
+    return this.httpClient.patch(this.BASE_URL+'/position?actualPosition='+oldPosition, {"currentPosition":newPosition}, {
+      headers: new HttpHeaders({'Content-Type':  'application/json'}),
+      observe: "response"
+    })
     .pipe(
       catchError(this.handleError)
     );

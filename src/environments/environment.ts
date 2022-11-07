@@ -8,7 +8,7 @@ export const environment = {
   production: false,
   apiHost: 'localhost:4200',
   apiProtocol: 'http://',
-  apiEquilibristiWs: 'http://localhost:3000'
+  apiEquilibristiWs: 'http://localhost:4200'
 };
 
 /*

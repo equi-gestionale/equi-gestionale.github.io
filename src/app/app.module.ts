@@ -27,6 +27,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { BookCardComponent } from './book-card/book-card.component';
 import { PublicLibraryComponent } from './public-library/public-library.component';
+import { GestisciScaffaleComponent } from './gestisci-scaffale/gestisci-scaffale.component';
 
 registerLocaleData(localeIt,'it');
 
@@ -48,7 +49,8 @@ registerLocaleData(localeIt,'it');
     ManageMemberComponent,
     MemberAccordionComponent,
     BookCardComponent,
-    PublicLibraryComponent
+    PublicLibraryComponent,
+    GestisciScaffaleComponent
   ],
   imports: [
     BrowserModule,
