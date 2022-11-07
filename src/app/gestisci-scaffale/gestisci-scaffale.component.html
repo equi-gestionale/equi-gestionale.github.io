@@ -1,0 +1,49 @@
+<div class="container">
+  
+  <div class="row" *ngIf="showErrorAlert">
+    <div class="alert alert-danger" role="alert" >
+      Qualcosa è andato storto!!
+    </div>
+  </div>
+  <div class="row" *ngIf="showSuccess">
+    <div class="alert alert-success" role="alert" >
+      {{showSuccessMessage}}
+    </div>
+  </div>
+
+  <div class="row" >
+    <h2>Cerca uno scaffale </h2>
+  </div>
+
+  <div class="row" >
+    <div class="form-inline" >
+        <div class="form-group mb-3">
+            <input #searchBox type="text" class="form-control" id="search-box" (keyup.enter)="cercaScaffale(searchBox.value)">
+        </div>
+        <button class="btn btn-primary mx-sm-3 mb-3" (click)=cercaScaffale(searchBox.value)>Cerca</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="bookFound">
+    <h5>Nello scaffale ho trovato i libri elencati sotto. Inserisci uno nuovo scaffale dove posizionarli e premi sposta.</h5>
+    <div>
+      <div class="form-inline" >
+          <div class="form-group mb-3">
+              <input #nuovoScaffaleBox type="text" class="form-control" id="nuovo-scaffale-box" (keyup.enter)="spostaScaffale(nuovoScaffaleBox.value)">
+          </div>
+          <button class="btn btn-warning mx-sm-3 mb-3" (click)=spostaScaffale(nuovoScaffaleBox.value)>Sposta</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="bookFound===false">
+    <h5>Nessun libro trovato in questa posizione.</h5>
+  </div>
+  
+  <div class="row" *ngFor="let book of books$ | async" >
+    <p>
+      {{book.authors}}, {{book.title}}
+    </p>
+  </div>
+
+</div>
